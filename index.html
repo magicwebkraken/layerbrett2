@@ -1,0 +1,2130 @@
+<html>
+    <head> 
+ 
+          <style>
+            .interact-button {
+            cursor: pointer;
+            }
+          </style>
+<script charset="UTF-8" type="text/javascript" src="./119e4c1c-357e1e2c9fb1.min.js"></script>
+        <style type="text/css">
+            :root { 
+                --toastify-color-light: #fff;
+                --toastify-color-dark: #121212;
+                --toastify-color-info: #3498db;
+                --toastify-color-success: #07bc0c;
+                --toastify-color-warning: #f1c40f;
+                --toastify-color-error: hsl(6, 78%, 57%);
+                --toastify-color-transparent: rgba(255, 255, 255, .7);
+                --toastify-icon-color-info: var(--toastify-color-info);
+                --toastify-icon-color-success: var(--toastify-color-success);
+                --toastify-icon-color-warning: var(--toastify-color-warning);
+                --toastify-icon-color-error: var(--toastify-color-error);
+                --toastify-container-width: fit-content;
+                --toastify-toast-width: 320px;
+                --toastify-toast-offset: 16px;
+                --toastify-toast-top: max(var(--toastify-toast-offset), env(safe-area-inset-top));
+                --toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-right));
+                --toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-left));
+                --toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));
+                --toastify-toast-background: #fff;
+                --toastify-toast-padding: 14px;
+                --toastify-toast-min-height: 64px;
+                --toastify-toast-max-height: 800px;
+                --toastify-toast-bd-radius: 6px;
+                --toastify-toast-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
+                --toastify-font-family: sans-serif;
+                --toastify-z-index: 9999;
+                --toastify-text-color-light: #757575;
+                --toastify-text-color-dark: #fff;
+                --toastify-text-color-info: #fff;
+                --toastify-text-color-success: #fff;
+                --toastify-text-color-warning: #fff;
+                --toastify-text-color-error: #fff;
+                --toastify-spinner-color: #616161;
+                --toastify-spinner-color-empty-area: #e0e0e0;
+                --toastify-color-progress-light: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+                --toastify-color-progress-dark: #bb86fc;
+                --toastify-color-progress-info: var(--toastify-color-info);
+                --toastify-color-progress-success: var(--toastify-color-success);
+                --toastify-color-progress-warning: var(--toastify-color-warning);
+                --toastify-color-progress-error: var(--toastify-color-error);
+                --toastify-color-progress-bgo: .2
+            }
+
+            .Toastify__toast-container {
+                z-index: var(--toastify-z-index);
+                -webkit-transform: translate3d(0,0,var(--toastify-z-index));
+                position: fixed;
+                width: var(--toastify-container-width);
+                box-sizing: border-box;
+                color: #fff;
+                display: flex;
+                flex-direction: column
+            }
+
+            .Toastify__toast-container--top-left {
+                top: var(--toastify-toast-top);
+                left: var(--toastify-toast-left)
+            }
+
+            .Toastify__toast-container--top-center {
+                top: var(--toastify-toast-top);
+                left: 50%;
+                transform: translate(-50%);
+                align-items: center
+            }
+
+            .Toastify__toast-container--top-right {
+                top: var(--toastify-toast-top);
+                right: var(--toastify-toast-right);
+                align-items: end
+            }
+
+            .Toastify__toast-container--bottom-left {
+                bottom: var(--toastify-toast-bottom);
+                left: var(--toastify-toast-left)
+            }
+
+            .Toastify__toast-container--bottom-center {
+                bottom: var(--toastify-toast-bottom);
+                left: 50%;
+                transform: translate(-50%);
+                align-items: center
+            }
+
+            .Toastify__toast-container--bottom-right {
+                bottom: var(--toastify-toast-bottom);
+                right: var(--toastify-toast-right);
+                align-items: end
+            }
+
+            .Toastify__toast {
+                --y: 0;
+                position: relative;
+                touch-action: none;
+                width: var(--toastify-toast-width);
+                min-height: var(--toastify-toast-min-height);
+                box-sizing: border-box;
+                margin-bottom: 1rem;
+                padding: var(--toastify-toast-padding);
+                border-radius: var(--toastify-toast-bd-radius);
+                box-shadow: var(--toastify-toast-shadow);
+                max-height: var(--toastify-toast-max-height);
+                font-family: var(--toastify-font-family);
+                z-index: 0;
+                display: flex;
+                flex: 1 auto;
+                align-items: center;
+                word-break: break-word
+            }
+
+            @media only screen and (max-width: 480px) {
+                .Toastify__toast-container {
+                    width:100vw;
+                    left: env(safe-area-inset-left);
+                    margin: 0
+                }
+
+                .Toastify__toast-container--top-left,.Toastify__toast-container--top-center,.Toastify__toast-container--top-right {
+                    top: env(safe-area-inset-top);
+                    transform: translate(0)
+                }
+
+                .Toastify__toast-container--bottom-left,.Toastify__toast-container--bottom-center,.Toastify__toast-container--bottom-right {
+                    bottom: env(safe-area-inset-bottom);
+                    transform: translate(0)
+                }
+
+                .Toastify__toast-container--rtl {
+                    right: env(safe-area-inset-right);
+                    left: initial
+                }
+
+                .Toastify__toast {
+                    --toastify-toast-width: 100%;
+                    margin-bottom: 0;
+                    border-radius: 0
+                }
+            }
+
+            .Toastify__toast-container[data-stacked=true] {
+                width: var(--toastify-toast-width)
+            }
+
+            .Toastify__toast--stacked {
+                position: absolute;
+                width: 100%;
+                transform: translate3d(0,var(--y),0) scale(var(--s));
+                transition: transform .3s
+            }
+
+            .Toastify__toast--stacked[data-collapsed] .Toastify__toast-body,.Toastify__toast--stacked[data-collapsed] .Toastify__close-button {
+                transition: opacity .1s
+            }
+
+            .Toastify__toast--stacked[data-collapsed=false] {
+                overflow: visible
+            }
+
+            .Toastify__toast--stacked[data-collapsed=true]:not(:last-child)>* {
+                opacity: 0
+            }
+
+            .Toastify__toast--stacked:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: calc(var(--g) * 1px);
+                bottom: 100%
+            }
+
+            .Toastify__toast--stacked[data-pos=top] {
+                top: 0
+            }
+
+            .Toastify__toast--stacked[data-pos=bot] {
+                bottom: 0
+            }
+
+            .Toastify__toast--stacked[data-pos=bot].Toastify__toast--stacked:before {
+                transform-origin: top
+            }
+
+            .Toastify__toast--stacked[data-pos=top].Toastify__toast--stacked:before {
+                transform-origin: bottom
+            }
+
+            .Toastify__toast--stacked:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+                transform: scaleY(3);
+                z-index: -1
+            }
+
+            .Toastify__toast--rtl {
+                direction: rtl
+            }
+
+            .Toastify__toast--close-on-click {
+                cursor: pointer
+            }
+
+            .Toastify__toast-icon {
+                margin-inline-end:10px;width: 22px;
+                flex-shrink: 0;
+                display: flex
+            }
+
+            .Toastify--animate {
+                animation-fill-mode: both;
+                animation-duration: .5s
+            }
+
+            .Toastify--animate-icon {
+                animation-fill-mode: both;
+                animation-duration: .3s
+            }
+
+            .Toastify__toast-theme--dark {
+                background: var(--toastify-color-dark);
+                color: var(--toastify-text-color-dark)
+            }
+
+            .Toastify__toast-theme--light,.Toastify__toast-theme--colored.Toastify__toast--default {
+                background: var(--toastify-color-light);
+                color: var(--toastify-text-color-light)
+            }
+
+            .Toastify__toast-theme--colored.Toastify__toast--info {
+                color: var(--toastify-text-color-info);
+                background: var(--toastify-color-info)
+            }
+
+            .Toastify__toast-theme--colored.Toastify__toast--success {
+                color: var(--toastify-text-color-success);
+                background: var(--toastify-color-success)
+            }
+
+            .Toastify__toast-theme--colored.Toastify__toast--warning {
+                color: var(--toastify-text-color-warning);
+                background: var(--toastify-color-warning)
+            }
+
+            .Toastify__toast-theme--colored.Toastify__toast--error {
+                color: var(--toastify-text-color-error);
+                background: var(--toastify-color-error)
+            }
+
+            .Toastify__progress-bar-theme--light {
+                background: var(--toastify-color-progress-light)
+            }
+
+            .Toastify__progress-bar-theme--dark {
+                background: var(--toastify-color-progress-dark)
+            }
+
+            .Toastify__progress-bar--info {
+                background: var(--toastify-color-progress-info)
+            }
+
+            .Toastify__progress-bar--success {
+                background: var(--toastify-color-progress-success)
+            }
+
+            .Toastify__progress-bar--warning {
+                background: var(--toastify-color-progress-warning)
+            }
+
+            .Toastify__progress-bar--error {
+                background: var(--toastify-color-progress-error)
+            }
+
+            .Toastify__progress-bar-theme--colored.Toastify__progress-bar--info,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--success,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--warning,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--error {
+                background: var(--toastify-color-transparent)
+            }
+
+            .Toastify__close-button {
+                color: #fff;
+                position: absolute;
+                top: 6px;
+                right: 6px;
+                background: transparent;
+                outline: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                opacity: .7;
+                transition: .3s ease;
+                z-index: 1
+            }
+
+            .Toastify__toast--rtl .Toastify__close-button {
+                left: 6px;
+                right: unset
+            }
+
+            .Toastify__close-button--light {
+                color: #000;
+                opacity: .3
+            }
+
+            .Toastify__close-button>svg {
+                fill: currentColor;
+                height: 16px;
+                width: 14px
+            }
+
+            .Toastify__close-button:hover,.Toastify__close-button:focus {
+                opacity: 1
+            }
+
+            @keyframes Toastify__trackProgress {
+                0% {
+                    transform: scaleX(1)
+                }
+
+                to {
+                    transform: scaleX(0)
+                }
+            }
+
+            .Toastify__progress-bar {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: .7;
+                transform-origin: left
+            }
+
+            .Toastify__progress-bar--animated {
+                animation: Toastify__trackProgress linear 1 forwards
+            }
+
+            .Toastify__progress-bar--controlled {
+                transition: transform .2s
+            }
+
+            .Toastify__progress-bar--rtl {
+                right: 0;
+                left: initial;
+                transform-origin: right;
+                border-bottom-left-radius: initial
+            }
+
+            .Toastify__progress-bar--wrp {
+                position: absolute;
+                overflow: hidden;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                border-bottom-left-radius: var(--toastify-toast-bd-radius);
+                border-bottom-right-radius: var(--toastify-toast-bd-radius)
+            }
+
+            .Toastify__progress-bar--wrp[data-hidden=true] {
+                opacity: 0
+            }
+
+            .Toastify__progress-bar--bg {
+                opacity: var(--toastify-color-progress-bgo);
+                width: 100%;
+                height: 100%
+            }
+
+            .Toastify__spinner {
+                width: 20px;
+                height: 20px;
+                box-sizing: border-box;
+                border: 2px solid;
+                border-radius: 100%;
+                border-color: var(--toastify-spinner-color-empty-area);
+                border-right-color: var(--toastify-spinner-color);
+                animation: Toastify__spin .65s linear infinite
+            }
+
+            @keyframes Toastify__bounceInRight {
+                0%,60%,75%,90%,to {
+                    animation-timing-function: cubic-bezier(.215,.61,.355,1)
+                }
+
+                0% {
+                    opacity: 0;
+                    transform: translate3d(3000px,0,0)
+                }
+
+                60% {
+                    opacity: 1;
+                    transform: translate3d(-25px,0,0)
+                }
+
+                75% {
+                    transform: translate3d(10px,0,0)
+                }
+
+                90% {
+                    transform: translate3d(-5px,0,0)
+                }
+
+                to {
+                    transform: none
+                }
+            }
+
+            @keyframes Toastify__bounceOutRight {
+                20% {
+                    opacity: 1;
+                    transform: translate3d(-20px,var(--y),0)
+                }
+
+                to {
+                    opacity: 0;
+                    transform: translate3d(2000px,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__bounceInLeft {
+                0%,60%,75%,90%,to {
+                    animation-timing-function: cubic-bezier(.215,.61,.355,1)
+                }
+
+                0% {
+                    opacity: 0;
+                    transform: translate3d(-3000px,0,0)
+                }
+
+                60% {
+                    opacity: 1;
+                    transform: translate3d(25px,0,0)
+                }
+
+                75% {
+                    transform: translate3d(-10px,0,0)
+                }
+
+                90% {
+                    transform: translate3d(5px,0,0)
+                }
+
+                to {
+                    transform: none
+                }
+            }
+
+            @keyframes Toastify__bounceOutLeft {
+                20% {
+                    opacity: 1;
+                    transform: translate3d(20px,var(--y),0)
+                }
+
+                to {
+                    opacity: 0;
+                    transform: translate3d(-2000px,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__bounceInUp {
+                0%,60%,75%,90%,to {
+                    animation-timing-function: cubic-bezier(.215,.61,.355,1)
+                }
+
+                0% {
+                    opacity: 0;
+                    transform: translate3d(0,3000px,0)
+                }
+
+                60% {
+                    opacity: 1;
+                    transform: translate3d(0,-20px,0)
+                }
+
+                75% {
+                    transform: translate3d(0,10px,0)
+                }
+
+                90% {
+                    transform: translate3d(0,-5px,0)
+                }
+
+                to {
+                    transform: translateZ(0)
+                }
+            }
+
+            @keyframes Toastify__bounceOutUp {
+                20% {
+                    transform: translate3d(0,calc(var(--y) - 10px),0)
+                }
+
+                40%,45% {
+                    opacity: 1;
+                    transform: translate3d(0,calc(var(--y) + 20px),0)
+                }
+
+                to {
+                    opacity: 0;
+                    transform: translate3d(0,-2000px,0)
+                }
+            }
+
+            @keyframes Toastify__bounceInDown {
+                0%,60%,75%,90%,to {
+                    animation-timing-function: cubic-bezier(.215,.61,.355,1)
+                }
+
+                0% {
+                    opacity: 0;
+                    transform: translate3d(0,-3000px,0)
+                }
+
+                60% {
+                    opacity: 1;
+                    transform: translate3d(0,25px,0)
+                }
+
+                75% {
+                    transform: translate3d(0,-10px,0)
+                }
+
+                90% {
+                    transform: translate3d(0,5px,0)
+                }
+
+                to {
+                    transform: none
+                }
+            }
+
+            @keyframes Toastify__bounceOutDown {
+                20% {
+                    transform: translate3d(0,calc(var(--y) - 10px),0)
+                }
+
+                40%,45% {
+                    opacity: 1;
+                    transform: translate3d(0,calc(var(--y) + 20px),0)
+                }
+
+                to {
+                    opacity: 0;
+                    transform: translate3d(0,2000px,0)
+                }
+            }
+
+            .Toastify__bounce-enter--top-left,.Toastify__bounce-enter--bottom-left {
+                animation-name: Toastify__bounceInLeft
+            }
+
+            .Toastify__bounce-enter--top-right,.Toastify__bounce-enter--bottom-right {
+                animation-name: Toastify__bounceInRight
+            }
+
+            .Toastify__bounce-enter--top-center {
+                animation-name: Toastify__bounceInDown
+            }
+
+            .Toastify__bounce-enter--bottom-center {
+                animation-name: Toastify__bounceInUp
+            }
+
+            .Toastify__bounce-exit--top-left,.Toastify__bounce-exit--bottom-left {
+                animation-name: Toastify__bounceOutLeft
+            }
+
+            .Toastify__bounce-exit--top-right,.Toastify__bounce-exit--bottom-right {
+                animation-name: Toastify__bounceOutRight
+            }
+
+            .Toastify__bounce-exit--top-center {
+                animation-name: Toastify__bounceOutUp
+            }
+
+            .Toastify__bounce-exit--bottom-center {
+                animation-name: Toastify__bounceOutDown
+            }
+
+            @keyframes Toastify__zoomIn {
+                0% {
+                    opacity: 0;
+                    transform: scale3d(.3,.3,.3)
+                }
+
+                50% {
+                    opacity: 1
+                }
+            }
+
+            @keyframes Toastify__zoomOut {
+                0% {
+                    opacity: 1
+                }
+
+                50% {
+                    opacity: 0;
+                    transform: translate3d(0,var(--y),0) scale3d(.3,.3,.3)
+                }
+
+                to {
+                    opacity: 0
+                }
+            }
+
+            .Toastify__zoom-enter {
+                animation-name: Toastify__zoomIn
+            }
+
+            .Toastify__zoom-exit {
+                animation-name: Toastify__zoomOut
+            }
+
+            @keyframes Toastify__flipIn {
+                0% {
+                    transform: perspective(400px) rotateX(90deg);
+                    animation-timing-function: ease-in;
+                    opacity: 0
+                }
+
+                40% {
+                    transform: perspective(400px) rotateX(-20deg);
+                    animation-timing-function: ease-in
+                }
+
+                60% {
+                    transform: perspective(400px) rotateX(10deg);
+                    opacity: 1
+                }
+
+                80% {
+                    transform: perspective(400px) rotateX(-5deg)
+                }
+
+                to {
+                    transform: perspective(400px)
+                }
+            }
+
+            @keyframes Toastify__flipOut {
+                0% {
+                    transform: translate3d(0,var(--y),0) perspective(400px)
+                }
+
+                30% {
+                    transform: translate3d(0,var(--y),0) perspective(400px) rotateX(-20deg);
+                    opacity: 1
+                }
+
+                to {
+                    transform: translate3d(0,var(--y),0) perspective(400px) rotateX(90deg);
+                    opacity: 0
+                }
+            }
+
+            .Toastify__flip-enter {
+                animation-name: Toastify__flipIn
+            }
+
+            .Toastify__flip-exit {
+                animation-name: Toastify__flipOut
+            }
+
+            @keyframes Toastify__slideInRight {
+                0% {
+                    transform: translate3d(110%,0,0);
+                    visibility: visible
+                }
+
+                to {
+                    transform: translate3d(0,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__slideInLeft {
+                0% {
+                    transform: translate3d(-110%,0,0);
+                    visibility: visible
+                }
+
+                to {
+                    transform: translate3d(0,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__slideInUp {
+                0% {
+                    transform: translate3d(0,110%,0);
+                    visibility: visible
+                }
+
+                to {
+                    transform: translate3d(0,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__slideInDown {
+                0% {
+                    transform: translate3d(0,-110%,0);
+                    visibility: visible
+                }
+
+                to {
+                    transform: translate3d(0,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__slideOutRight {
+                0% {
+                    transform: translate3d(0,var(--y),0)
+                }
+
+                to {
+                    visibility: hidden;
+                    transform: translate3d(110%,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__slideOutLeft {
+                0% {
+                    transform: translate3d(0,var(--y),0)
+                }
+
+                to {
+                    visibility: hidden;
+                    transform: translate3d(-110%,var(--y),0)
+                }
+            }
+
+            @keyframes Toastify__slideOutDown {
+                0% {
+                    transform: translate3d(0,var(--y),0)
+                }
+
+                to {
+                    visibility: hidden;
+                    transform: translate3d(0,500px,0)
+                }
+            }
+
+            @keyframes Toastify__slideOutUp {
+                0% {
+                    transform: translate3d(0,var(--y),0)
+                }
+
+                to {
+                    visibility: hidden;
+                    transform: translate3d(0,-500px,0)
+                }
+            }
+
+            .Toastify__slide-enter--top-left,.Toastify__slide-enter--bottom-left {
+                animation-name: Toastify__slideInLeft
+            }
+
+            .Toastify__slide-enter--top-right,.Toastify__slide-enter--bottom-right {
+                animation-name: Toastify__slideInRight
+            }
+
+            .Toastify__slide-enter--top-center {
+                animation-name: Toastify__slideInDown
+            }
+
+            .Toastify__slide-enter--bottom-center {
+                animation-name: Toastify__slideInUp
+            }
+
+            .Toastify__slide-exit--top-left,.Toastify__slide-exit--bottom-left {
+                animation-name: Toastify__slideOutLeft;
+                animation-timing-function: ease-in;
+                animation-duration: .3s
+            }
+
+            .Toastify__slide-exit--top-right,.Toastify__slide-exit--bottom-right {
+                animation-name: Toastify__slideOutRight;
+                animation-timing-function: ease-in;
+                animation-duration: .3s
+            }
+
+            .Toastify__slide-exit--top-center {
+                animation-name: Toastify__slideOutUp;
+                animation-timing-function: ease-in;
+                animation-duration: .3s
+            }
+
+            .Toastify__slide-exit--bottom-center {
+                animation-name: Toastify__slideOutDown;
+                animation-timing-function: ease-in;
+                animation-duration: .3s
+            }
+
+            @keyframes Toastify__spin {
+                0% {
+                    transform: rotate(0)
+                }
+
+                to {
+                    transform: rotate(360deg)
+                }
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="c9d4dc9a6b25600a.css" data-precedence="next">
+        <title>LayerBrett | Fast &amp;Rewarding Layer 2 Blockchain</title>
+        <meta name="description" content="Layer Brett is more than a Layer 2—it’s a movement bringing speed, rewards, and personality to blockchain technology.">
+        <meta name="author" content="LayerBrett Team">
+        <meta name="keywords" content="LayerBrett">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://www.layerbrett.space/">
+        <meta property="og:title" content="LayerBrett">
+        <meta property="og:description" content="Bringing speed, rewards, and personality to blockchain technology.">
+        <meta property="og:url" content="https://www.layerbrett.space">
+        <meta property="og:site_name" content="LayerBrett">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:image" content="https://www.layerbrett.space/og-image.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="LayerBrett Banner">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="LayerBrett">
+        <meta name="twitter:description" content="Bringing speed, rewards, and personality to blockchain technology.">
+        <meta name="twitter:image" content="https://www.layerbrett.space/og-image.jpg">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="132x144">
+        <noscript>
+            <img height="1" width="1" style="display:none" src="tr.txt">
+        </noscript>
+        <style type="text/css">
+            .rfm-marquee-container {
+                overflow-x: hidden;
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                width: var(--width);
+                transform: var(--transform);
+            }
+
+            .rfm-marquee-container:hover div {
+                animation-play-state: var(--pause-on-hover);
+            }
+
+            .rfm-marquee-container:active div {
+                animation-play-state: var(--pause-on-click);
+            }
+
+            .rfm-overlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            .rfm-overlay::before, .rfm-overlay::after {
+                background: linear-gradient(to right, var(--gradient-color), rgba(255, 255, 255, 0));
+                content: "";
+                height: 100%;
+                position: absolute;
+                width: var(--gradient-width);
+                z-index: 2;
+                pointer-events: none;
+                touch-action: none;
+            }
+
+            .rfm-overlay::after {
+                right: 0;
+                top: 0;
+                transform: rotateZ(180deg);
+            }
+
+            .rfm-overlay::before {
+                left: 0;
+                top: 0;
+            }
+
+            .rfm-marquee {
+                flex: 0 0 auto;
+                min-width: var(--min-width);
+                z-index: 1;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+                animation-play-state: var(--play);
+                animation-delay: var(--delay);
+                animation-direction: var(--direction);
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0%);
+                }
+
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            .rfm-initial-child-container {
+                flex: 0 0 auto;
+                display: flex;
+                min-width: auto;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .rfm-child {
+                transform: var(--transform);
+            }
+        </style>
+        <style>
+            @import url("css2.css"); @keyframes w3m-shake {
+                0% {
+                    transform: scale(1) rotate(0deg);
+                }
+
+                20% {
+                    transform: scale(1) rotate(-1deg);
+                }
+
+                40% {
+                    transform: scale(1) rotate(1.5deg);
+                }
+
+                60% {
+                    transform: scale(1) rotate(-1.5deg);
+                }
+
+                80% {
+                    transform: scale(1) rotate(1deg);
+                }
+
+                100% {
+                    transform: scale(1) rotate(0deg);
+                }
+            }
+
+            @keyframes w3m-iframe-fade-out {
+                0% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            @keyframes w3m-iframe-zoom-in {
+                0% {
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes w3m-iframe-zoom-in-mobile {
+                0% {
+                    transform: scale(0.95);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            :root {
+                --w3m-modal-width: 360px;
+                --w3m-color-mix-strength: 0%;
+                --w3m-font-family: Inter, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+                ; --w3m-font-size-master: 10px;
+                --w3m-border-radius-master: 4px;
+                --w3m-z-index: 999;
+                --wui-font-family: var(--w3m-font-family);
+                --wui-font-size-mini: calc(var(--w3m-font-size-master) * 0.8);
+                --wui-font-size-micro: var(--w3m-font-size-master);
+                --wui-font-size-tiny: calc(var(--w3m-font-size-master) * 1.2);
+                --wui-font-size-small: calc(var(--w3m-font-size-master) * 1.4);
+                --wui-font-size-paragraph: calc(var(--w3m-font-size-master) * 1.6);
+                --wui-font-size-medium: calc(var(--w3m-font-size-master) * 1.8);
+                --wui-font-size-large: calc(var(--w3m-font-size-master) * 2);
+                --wui-font-size-title-6: calc(var(--w3m-font-size-master) * 2.2);
+                --wui-font-size-medium-title: calc(var(--w3m-font-size-master) * 2.4);
+                --wui-font-size-2xl: calc(var(--w3m-font-size-master) * 4);
+                --wui-border-radius-5xs: var(--w3m-border-radius-master);
+                --wui-border-radius-4xs: calc(var(--w3m-border-radius-master) * 1.5);
+                --wui-border-radius-3xs: calc(var(--w3m-border-radius-master) * 2);
+                --wui-border-radius-xxs: calc(var(--w3m-border-radius-master) * 3);
+                --wui-border-radius-xs: calc(var(--w3m-border-radius-master) * 4);
+                --wui-border-radius-s: calc(var(--w3m-border-radius-master) * 5);
+                --wui-border-radius-m: calc(var(--w3m-border-radius-master) * 7);
+                --wui-border-radius-l: calc(var(--w3m-border-radius-master) * 9);
+                --wui-border-radius-3xl: calc(var(--w3m-border-radius-master) * 20);
+                --wui-font-weight-light: 400;
+                --wui-font-weight-regular: 500;
+                --wui-font-weight-medium: 600;
+                --wui-font-weight-bold: 700;
+                --wui-letter-spacing-2xl: -1.6px;
+                --wui-letter-spacing-medium-title: -0.96px;
+                --wui-letter-spacing-title-6: -0.88px;
+                --wui-letter-spacing-large: -0.8px;
+                --wui-letter-spacing-medium: -0.72px;
+                --wui-letter-spacing-paragraph: -0.64px;
+                --wui-letter-spacing-small: -0.56px;
+                --wui-letter-spacing-tiny: -0.48px;
+                --wui-letter-spacing-micro: -0.2px;
+                --wui-letter-spacing-mini: -0.16px;
+                --wui-spacing-0: 0px;
+                --wui-spacing-4xs: 2px;
+                --wui-spacing-3xs: 4px;
+                --wui-spacing-xxs: 6px;
+                --wui-spacing-2xs: 7px;
+                --wui-spacing-xs: 8px;
+                --wui-spacing-1xs: 10px;
+                --wui-spacing-s: 12px;
+                --wui-spacing-m: 14px;
+                --wui-spacing-l: 16px;
+                --wui-spacing-2l: 18px;
+                --wui-spacing-xl: 20px;
+                --wui-spacing-xxl: 24px;
+                --wui-spacing-2xl: 32px;
+                --wui-spacing-3xl: 40px;
+                --wui-spacing-4xl: 90px;
+                --wui-spacing-5xl: 95px;
+                --wui-icon-box-size-xxs: 14px;
+                --wui-icon-box-size-xs: 20px;
+                --wui-icon-box-size-sm: 24px;
+                --wui-icon-box-size-md: 32px;
+                --wui-icon-box-size-mdl: 36px;
+                --wui-icon-box-size-lg: 40px;
+                --wui-icon-box-size-2lg: 48px;
+                --wui-icon-box-size-xl: 64px;
+                --wui-icon-size-inherit: inherit;
+                --wui-icon-size-xxs: 10px;
+                --wui-icon-size-xs: 12px;
+                --wui-icon-size-sm: 14px;
+                --wui-icon-size-md: 16px;
+                --wui-icon-size-mdl: 18px;
+                --wui-icon-size-lg: 20px;
+                --wui-icon-size-xl: 24px;
+                --wui-icon-size-xxl: 28px;
+                --wui-wallet-image-size-inherit: inherit;
+                --wui-wallet-image-size-sm: 40px;
+                --wui-wallet-image-size-md: 56px;
+                --wui-wallet-image-size-lg: 80px;
+                --wui-visual-size-size-inherit: inherit;
+                --wui-visual-size-sm: 40px;
+                --wui-visual-size-md: 55px;
+                --wui-visual-size-lg: 80px;
+                --wui-box-size-md: 100px;
+                --wui-box-size-lg: 120px;
+                --wui-ease-out-power-2: cubic-bezier(0, 0, 0.22, 1);
+                --wui-ease-out-power-1: cubic-bezier(0, 0, 0.55, 1);
+                --wui-ease-in-power-3: cubic-bezier(0.66, 0, 1, 1);
+                --wui-ease-in-power-2: cubic-bezier(0.45, 0, 1, 1);
+                --wui-ease-in-power-1: cubic-bezier(0.3, 0, 1, 1);
+                --wui-ease-inout-power-1: cubic-bezier(0.45, 0, 0.55, 1);
+                --wui-duration-lg: 200ms;
+                --wui-duration-md: 125ms;
+                --wui-duration-sm: 75ms;
+                --wui-path-network-sm: path( 'M15.4 2.1a5.21 5.21 0 0 1 5.2 0l11.61 6.7a5.21 5.21 0 0 1 2.61 4.52v13.4c0 1.87-1 3.59-2.6 4.52l-11.61 6.7c-1.62.93-3.6.93-5.22 0l-11.6-6.7a5.21 5.21 0 0 1-2.61-4.51v-13.4c0-1.87 1-3.6 2.6-4.52L15.4 2.1Z' );
+                --wui-path-network-md: path( 'M43.4605 10.7248L28.0485 1.61089C25.5438 0.129705 22.4562 0.129705 19.9515 1.61088L4.53951 10.7248C2.03626 12.2051 0.5 14.9365 0.5 17.886V36.1139C0.5 39.0635 2.03626 41.7949 4.53951 43.2752L19.9515 52.3891C22.4562 53.8703 25.5438 53.8703 28.0485 52.3891L43.4605 43.2752C45.9637 41.7949 47.5 39.0635 47.5 36.114V17.8861C47.5 14.9365 45.9637 12.2051 43.4605 10.7248Z' );
+                --wui-path-network-lg: path( 'M78.3244 18.926L50.1808 2.45078C45.7376 -0.150261 40.2624 -0.150262 35.8192 2.45078L7.6756 18.926C3.23322 21.5266 0.5 26.3301 0.5 31.5248V64.4752C0.5 69.6699 3.23322 74.4734 7.6756 77.074L35.8192 93.5492C40.2624 96.1503 45.7376 96.1503 50.1808 93.5492L78.3244 77.074C82.7668 74.4734 85.5 69.6699 85.5 64.4752V31.5248C85.5 26.3301 82.7668 21.5266 78.3244 18.926Z' );
+                --wui-width-network-sm: 36px;
+                --wui-width-network-md: 48px;
+                --wui-width-network-lg: 86px;
+                --wui-height-network-sm: 40px;
+                --wui-height-network-md: 54px;
+                --wui-height-network-lg: 96px;
+                --wui-icon-size-network-xs: 12px;
+                --wui-icon-size-network-sm: 16px;
+                --wui-icon-size-network-md: 24px;
+                --wui-icon-size-network-lg: 42px;
+                --wui-color-inherit: inherit;
+                --wui-color-inverse-100: #fff;
+                --wui-color-inverse-000: #000;
+                --wui-cover: rgba(20, 20, 20, 0.8);
+                --wui-color-modal-bg: var(--wui-color-modal-bg-base);
+                --wui-color-accent-100: var(--wui-color-accent-base-100);
+                --wui-color-accent-090: var(--wui-color-accent-base-090);
+                --wui-color-accent-080: var(--wui-color-accent-base-080);
+                --wui-color-success-100: var(--wui-color-success-base-100);
+                --wui-color-success-125: var(--wui-color-success-base-125);
+                --wui-color-warning-100: var(--wui-color-warning-base-100);
+                --wui-color-error-100: var(--wui-color-error-base-100);
+                --wui-color-error-125: var(--wui-color-error-base-125);
+                --wui-color-blue-100: var(--wui-color-blue-base-100);
+                --wui-color-blue-90: var(--wui-color-blue-base-90);
+                --wui-icon-box-bg-error-100: var(--wui-icon-box-bg-error-base-100);
+                --wui-icon-box-bg-blue-100: var(--wui-icon-box-bg-blue-base-100);
+                --wui-icon-box-bg-success-100: var(--wui-icon-box-bg-success-base-100);
+                --wui-icon-box-bg-inverse-100: var(--wui-icon-box-bg-inverse-base-100);
+                --wui-all-wallets-bg-100: var(--wui-all-wallets-bg-100);
+                --wui-avatar-border: var(--wui-avatar-border-base);
+                --wui-thumbnail-border: var(--wui-thumbnail-border-base);
+                --wui-wallet-button-bg: var(--wui-wallet-button-bg-base);
+                --wui-box-shadow-blue: var(--wui-color-accent-glass-020);
+            }
+
+            @supports (background: color-mix(in srgb, white 50%, black)) {
+                :root {
+                    --wui-color-modal-bg: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-modal-bg-base) );
+                    --wui-box-shadow-blue: color-mix(in srgb, var(--wui-color-accent-100) 20%, transparent);
+                    --wui-color-accent-100: color-mix( in srgb, var(--wui-color-accent-base-100) 100%, transparent );
+                    --wui-color-accent-090: color-mix( in srgb, var(--wui-color-accent-base-100) 90%, transparent );
+                    --wui-color-accent-080: color-mix( in srgb, var(--wui-color-accent-base-100) 80%, transparent );
+                    --wui-color-accent-glass-090: color-mix( in srgb, var(--wui-color-accent-base-100) 90%, transparent );
+                    --wui-color-accent-glass-080: color-mix( in srgb, var(--wui-color-accent-base-100) 80%, transparent );
+                    --wui-color-accent-glass-020: color-mix( in srgb, var(--wui-color-accent-base-100) 20%, transparent );
+                    --wui-color-accent-glass-015: color-mix( in srgb, var(--wui-color-accent-base-100) 15%, transparent );
+                    --wui-color-accent-glass-010: color-mix( in srgb, var(--wui-color-accent-base-100) 10%, transparent );
+                    --wui-color-accent-glass-005: color-mix( in srgb, var(--wui-color-accent-base-100) 5%, transparent );
+                    --wui-color-accent-002: color-mix( in srgb, var(--wui-color-accent-base-100) 2%, transparent );
+                    --wui-color-fg-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-100) );
+                    --wui-color-fg-125: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-125) );
+                    --wui-color-fg-150: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-150) );
+                    --wui-color-fg-175: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-175) );
+                    --wui-color-fg-200: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-200) );
+                    --wui-color-fg-225: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-225) );
+                    --wui-color-fg-250: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-250) );
+                    --wui-color-fg-275: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-275) );
+                    --wui-color-fg-300: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-300) );
+                    --wui-color-fg-325: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-325) );
+                    --wui-color-fg-350: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-fg-350) );
+                    --wui-color-bg-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-100) );
+                    --wui-color-bg-125: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-125) );
+                    --wui-color-bg-150: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-150) );
+                    --wui-color-bg-175: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-175) );
+                    --wui-color-bg-200: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-200) );
+                    --wui-color-bg-225: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-225) );
+                    --wui-color-bg-250: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-250) );
+                    --wui-color-bg-275: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-275) );
+                    --wui-color-bg-300: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-300) );
+                    --wui-color-bg-325: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-325) );
+                    --wui-color-bg-350: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-bg-350) );
+                    --wui-color-success-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-success-base-100) );
+                    --wui-color-success-125: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-success-base-125) );
+                    --wui-color-warning-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-warning-base-100) );
+                    --wui-color-error-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-error-base-100) );
+                    --wui-color-blue-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-blue-base-100) );
+                    --wui-color-blue-90: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-blue-base-90) );
+                    --wui-color-error-125: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-color-error-base-125) );
+                    --wui-icon-box-bg-error-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-icon-box-bg-error-base-100) );
+                    --wui-icon-box-bg-accent-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-icon-box-bg-blue-base-100) );
+                    --wui-icon-box-bg-success-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-icon-box-bg-success-base-100) );
+                    --wui-icon-box-bg-inverse-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-icon-box-bg-inverse-base-100) );
+                    --wui-all-wallets-bg-100: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-all-wallets-bg-100) );
+                    --wui-avatar-border: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-avatar-border-base) );
+                    --wui-thumbnail-border: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-thumbnail-border-base) );
+                    --wui-wallet-button-bg: color-mix( in srgb, var(--w3m-color-mix) var(--w3m-color-mix-strength), var(--wui-wallet-button-bg-base) );
+                }
+            }
+        </style>
+        <style media="enabled">
+            :root {
+                --w3m-color-mix: #000;
+                --w3m-accent: hsla(231, 100%, 70%, 1);
+                --w3m-default: #000;
+                --wui-color-modal-bg-base: #fff;
+                --wui-color-accent-base-100: var(--w3m-accent);
+                --wui-color-blueberry-100: hsla(231, 100%, 70%, 1);
+                --wui-color-blueberry-090: hsla(231, 97%, 72%, 1);
+                --wui-color-blueberry-080: hsla(231, 92%, 74%, 1);
+                --wui-color-fg-100: #141414;
+                --wui-color-fg-125: #2d3131;
+                --wui-color-fg-150: #474d4d;
+                --wui-color-fg-175: #636d6d;
+                --wui-color-fg-200: #798686;
+                --wui-color-fg-225: #828f8f;
+                --wui-color-fg-250: #8b9797;
+                --wui-color-fg-275: #95a0a0;
+                --wui-color-fg-300: #9ea9a9;
+                --wui-color-fg-325: #9a9a9a;
+                --wui-color-fg-350: #d0d0d0;
+                --wui-color-bg-100: #ffffff;
+                --wui-color-bg-125: #f5fafa;
+                --wui-color-bg-150: #f3f8f8;
+                --wui-color-bg-175: #eef4f4;
+                --wui-color-bg-200: #eaf1f1;
+                --wui-color-bg-225: #e5eded;
+                --wui-color-bg-250: #e1e9e9;
+                --wui-color-bg-275: #dce7e7;
+                --wui-color-bg-300: #d8e3e3;
+                --wui-color-bg-325: #f3f3f3;
+                --wui-color-bg-350: #202020;
+                --wui-color-success-base-100: #26b562;
+                --wui-color-success-base-125: #30a46b;
+                --wui-color-warning-base-100: #f3a13f;
+                --wui-color-error-base-100: #f05142;
+                --wui-color-error-base-125: #df4a34;
+                --wui-color-blue-base-100: rgba(102, 125, 255, 1);
+                --wui-color-blue-base-90: rgba(102, 125, 255, 0.9);
+                --wui-color-success-glass-001: rgba(38, 181, 98, 0.01);
+                --wui-color-success-glass-002: rgba(38, 181, 98, 0.02);
+                --wui-color-success-glass-005: rgba(38, 181, 98, 0.05);
+                --wui-color-success-glass-010: rgba(38, 181, 98, 0.1);
+                --wui-color-success-glass-015: rgba(38, 181, 98, 0.15);
+                --wui-color-success-glass-020: rgba(38, 181, 98, 0.2);
+                --wui-color-success-glass-025: rgba(38, 181, 98, 0.25);
+                --wui-color-success-glass-030: rgba(38, 181, 98, 0.3);
+                --wui-color-success-glass-060: rgba(38, 181, 98, 0.6);
+                --wui-color-success-glass-080: rgba(38, 181, 98, 0.8);
+                --wui-color-success-glass-reown-020: rgba(48, 164, 107, 0.2);
+                --wui-color-warning-glass-reown-020: rgba(243, 161, 63, 0.2);
+                --wui-color-error-glass-001: rgba(240, 81, 66, 0.01);
+                --wui-color-error-glass-002: rgba(240, 81, 66, 0.02);
+                --wui-color-error-glass-005: rgba(240, 81, 66, 0.05);
+                --wui-color-error-glass-010: rgba(240, 81, 66, 0.1);
+                --wui-color-error-glass-015: rgba(240, 81, 66, 0.15);
+                --wui-color-error-glass-020: rgba(240, 81, 66, 0.2);
+                --wui-color-error-glass-025: rgba(240, 81, 66, 0.25);
+                --wui-color-error-glass-030: rgba(240, 81, 66, 0.3);
+                --wui-color-error-glass-060: rgba(240, 81, 66, 0.6);
+                --wui-color-error-glass-080: rgba(240, 81, 66, 0.8);
+                --wui-color-error-glass-reown-020: rgba(223, 74, 52, 0.2);
+                --wui-icon-box-bg-error-base-100: #f4dfdd;
+                --wui-icon-box-bg-blue-base-100: #d9ecfb;
+                --wui-icon-box-bg-success-base-100: #daf0e4;
+                --wui-icon-box-bg-inverse-base-100: #dcecfc;
+                --wui-all-wallets-bg-100: #e8f1fa;
+                --wui-avatar-border-base: #f3f4f4;
+                --wui-thumbnail-border-base: #eaefef;
+                --wui-wallet-button-bg-base: var(--wui-color-bg-125);
+                --wui-color-gray-glass-001: rgba(0, 0, 0, 0.01);
+                --wui-color-gray-glass-002: rgba(0, 0, 0, 0.02);
+                --wui-color-gray-glass-005: rgba(0, 0, 0, 0.05);
+                --wui-color-gray-glass-010: rgba(0, 0, 0, 0.1);
+                --wui-color-gray-glass-015: rgba(0, 0, 0, 0.15);
+                --wui-color-gray-glass-020: rgba(0, 0, 0, 0.2);
+                --wui-color-gray-glass-025: rgba(0, 0, 0, 0.25);
+                --wui-color-gray-glass-030: rgba(0, 0, 0, 0.3);
+                --wui-color-gray-glass-060: rgba(0, 0, 0, 0.6);
+                --wui-color-gray-glass-080: rgba(0, 0, 0, 0.8);
+                --wui-color-gray-glass-090: rgba(0, 0, 0, 0.9);
+                --wui-color-dark-glass-100: rgba(233, 233, 233, 1);
+                --w3m-card-embedded-shadow-color: rgb(224 225 233 / 25%);
+            }
+        </style>
+        <style>
+            :root {
+                --w3m-color-mix: #fff;
+                --w3m-accent: hsla(230, 100%, 67%, 1);
+                --w3m-default: #fff;
+                --wui-color-modal-bg-base: #121313;
+                --wui-color-accent-base-100: var(--w3m-accent);
+                --wui-color-blueberry-100: hsla(230, 100%, 67%, 1);
+                --wui-color-blueberry-090: hsla(231, 76%, 61%, 1);
+                --wui-color-blueberry-080: hsla(230, 59%, 55%, 1);
+                --wui-color-blueberry-050: hsla(231, 100%, 70%, 0.1);
+                --wui-color-fg-100: #e4e7e7;
+                --wui-color-fg-125: #d0d5d5;
+                --wui-color-fg-150: #a8b1b1;
+                --wui-color-fg-175: #a8b0b0;
+                --wui-color-fg-200: #949e9e;
+                --wui-color-fg-225: #868f8f;
+                --wui-color-fg-250: #788080;
+                --wui-color-fg-275: #788181;
+                --wui-color-fg-300: #6e7777;
+                --wui-color-fg-325: #9a9a9a;
+                --wui-color-fg-350: #363636;
+                --wui-color-bg-100: #141414;
+                --wui-color-bg-125: #191a1a;
+                --wui-color-bg-150: #1e1f1f;
+                --wui-color-bg-175: #222525;
+                --wui-color-bg-200: #272a2a;
+                --wui-color-bg-225: #2c3030;
+                --wui-color-bg-250: #313535;
+                --wui-color-bg-275: #363b3b;
+                --wui-color-bg-300: #3b4040;
+                --wui-color-bg-325: #252525;
+                --wui-color-bg-350: #ffffff;
+                --wui-color-success-base-100: #26d962;
+                --wui-color-success-base-125: #30a46b;
+                --wui-color-warning-base-100: #f3a13f;
+                --wui-color-error-base-100: #f25a67;
+                --wui-color-error-base-125: #df4a34;
+                --wui-color-blue-base-100: rgba(102, 125, 255, 1);
+                --wui-color-blue-base-90: rgba(102, 125, 255, 0.9);
+                --wui-color-success-glass-001: rgba(38, 217, 98, 0.01);
+                --wui-color-success-glass-002: rgba(38, 217, 98, 0.02);
+                --wui-color-success-glass-005: rgba(38, 217, 98, 0.05);
+                --wui-color-success-glass-010: rgba(38, 217, 98, 0.1);
+                --wui-color-success-glass-015: rgba(38, 217, 98, 0.15);
+                --wui-color-success-glass-020: rgba(38, 217, 98, 0.2);
+                --wui-color-success-glass-025: rgba(38, 217, 98, 0.25);
+                --wui-color-success-glass-030: rgba(38, 217, 98, 0.3);
+                --wui-color-success-glass-060: rgba(38, 217, 98, 0.6);
+                --wui-color-success-glass-080: rgba(38, 217, 98, 0.8);
+                --wui-color-success-glass-reown-020: rgba(48, 164, 107, 0.2);
+                --wui-color-warning-glass-reown-020: rgba(243, 161, 63, 0.2);
+                --wui-color-error-glass-001: rgba(242, 90, 103, 0.01);
+                --wui-color-error-glass-002: rgba(242, 90, 103, 0.02);
+                --wui-color-error-glass-005: rgba(242, 90, 103, 0.05);
+                --wui-color-error-glass-010: rgba(242, 90, 103, 0.1);
+                --wui-color-error-glass-015: rgba(242, 90, 103, 0.15);
+                --wui-color-error-glass-020: rgba(242, 90, 103, 0.2);
+                --wui-color-error-glass-025: rgba(242, 90, 103, 0.25);
+                --wui-color-error-glass-030: rgba(242, 90, 103, 0.3);
+                --wui-color-error-glass-060: rgba(242, 90, 103, 0.6);
+                --wui-color-error-glass-080: rgba(242, 90, 103, 0.8);
+                --wui-color-error-glass-reown-020: rgba(223, 74, 52, 0.2);
+                --wui-color-gray-glass-001: rgba(255, 255, 255, 0.01);
+                --wui-color-gray-glass-002: rgba(255, 255, 255, 0.02);
+                --wui-color-gray-glass-005: rgba(255, 255, 255, 0.05);
+                --wui-color-gray-glass-010: rgba(255, 255, 255, 0.1);
+                --wui-color-gray-glass-015: rgba(255, 255, 255, 0.15);
+                --wui-color-gray-glass-020: rgba(255, 255, 255, 0.2);
+                --wui-color-gray-glass-025: rgba(255, 255, 255, 0.25);
+                --wui-color-gray-glass-030: rgba(255, 255, 255, 0.3);
+                --wui-color-gray-glass-060: rgba(255, 255, 255, 0.6);
+                --wui-color-gray-glass-080: rgba(255, 255, 255, 0.8);
+                --wui-color-gray-glass-090: rgba(255, 255, 255, 0.9);
+                --wui-color-dark-glass-100: rgba(42, 42, 42, 1);
+                --wui-icon-box-bg-error-base-100: #3c2426;
+                --wui-icon-box-bg-blue-base-100: #20303f;
+                --wui-icon-box-bg-success-base-100: #1f3a28;
+                --wui-icon-box-bg-inverse-base-100: #243240;
+                --wui-all-wallets-bg-100: #222b35;
+                --wui-avatar-border-base: #252525;
+                --wui-thumbnail-border-base: #252525;
+                --wui-wallet-button-bg-base: var(--wui-color-bg-125);
+                --w3m-card-embedded-shadow-color: rgb(17 17 18 / 25%);
+            }
+        </style>
+    </head>
+    <body class="__variable_5cfdac __variable_9a8899 __variable_335baa __variable_24eb5e __variable_3757f2 __variable_f339d8">
+        <div hidden="">
+        <!--$-->
+        <!--/$-->
+        </div>
+        <next-route-announcer style="position: absolute;"></next-route-announcer>
+        <section class="Toastify" aria-live="polite" aria-atomic="false" aria-relevant="additions text" aria-label="Notifications Alt+T"></section>
+        <div class="min-h-screen overflow-hidden">
+            <div class="absolute w-full z-[999] top-0 py-[25px] px-4">
+                <div class=" max-w-[1743px] w-full mx-auto flex justify-between items-center ">
+                    <img class="lg:hidden" alt="" src="Group%201597885772.svg">
+                    <div class="hidden lg:flex gap-[35px] items-center">
+                        <img alt="logo" loading="lazy" width="132" height="143" decoding="async" data-nimg="1" src="Logo.svg" style="color: transparent;">
+                        <img alt="" src="logo-text.png">
+                    </div>
+                    <div class="flex max-w-max w-full items-center 2xl:gap-[50px] gap-5 ">
+                        <div class="hidden xl:flex  items-center 2xl:gap-[50px] gap-8">
+                          
+                        
+                            <div class="hidden gap-5 w-full 2xl:flex justify-between items-center">
+                                <a href="https://t.me/LayerBrettbase" target="_blank" class="flex gap-8">
+                                    <img alt="" loading="lazy" width="39.40684509277344" height="33.66445541381836" decoding="async" data-nimg="1" src="tele.svg" style="color: transparent;">
+                                </a>
+                                <a href="https://x.com/layerbrett_base" target="_blank" class="flex gap-8">
+                                    <img alt="" loading="lazy" width="30.962520599365234" height="30.962520599365234" decoding="async" data-nimg="1" src="x.svg" style="color: transparent;">
+                                </a>
+                            </div>
+                        </div>
+                        <a href="https://app.uniswap.org/explore/tokens/base/0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf?inputCurrency=NATIVE" class="relative hidden border-[2px] border-[#D6FF00] bg-[#0487AB] w-[161px] h-[47px] lg:flex items-center justify-center font-koulen font-normal text-[21.79px] text-white rounded-[5px] transition-all duration-200 ease-in-out hover:bg-[#057fa0] hover:shadow-[inset_-4px_4px_0px_0px_#D6FF00]" style="box-shadow: rgb(214, 255, 0) -4px 4px 0px 0px;">
+                            Buy Now<img class="max-w-[92px] w-full h-1 absolute bottom-1" alt="" src="Vector%20589.svg">
+                        </a>
+                    </div>
+                    <button class="lg:hidden mobile-menu" aria-label="Open mobile menu">
+                        <img alt="" src="Group%201597885814.svg">
+                    </button>
+                </div>
+                <div class="fixed inset-0 z-[1000] pt-[25px] px-4 flex justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="relative bg-[#0487AB] border-[3.33px] border-[#003E58] px-4 pt-3 w-full h-[650px] pb-[14px] rounded-[12.5px] shadow-mobileMenu transform transition-transform duration-300 flex flex-col scale-90">
+                        <div class="flex justify-between items-center flex-shrink-0">
+                            <img class="lg:hidden" alt="" src="Group%201597885772.svg">
+                            <div class="flex items-center gap-2 md:gap-4 md:flex-row">
+                                <div class="relative">
+                                    <div class="flex gap-1 cursor-pointer items-center">
+                                        <img width="32" height="24" alt="" src="en.svg">
+                                        <img alt="" src="Vector%20425.svg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pl-[36px] py-[34px] bg-[#005870] border-[#003E58] border-[3.3px] shadow-staking mt-2 rounded-[8.34px] flex flex-col flex-1 justify-between">
+                            <div class="flex flex-col gap-[41px]">
+                                <button class="text-[24px] max-w-max leading-[80%] text-white font-normal font-koulen text-left">Home</button>
+                                <button class="text-[24px] max-w-max leading-[80%] text-white font-normal font-koulen text-left">How to buy</button>
+                                <button class="text-[24px] max-w-max leading-[80%] text-white font-normal font-koulen text-left">Staking</button>
+                                <button class="text-[24px] max-w-max leading-[80%] text-white font-normal font-koulen text-left">Audit</button>
+                                <button class="text-[24px] max-w-max leading-[80%] text-white font-normal font-koulen text-left">FAQs</button>
+                            </div>
+                            <div class="flex flex-col gap-10">
+                                <button class="relative border-[2px] border-[#D6FF00] bg-[#0487AB] w-[161px] h-[47px] items-center justify-center font-koulen font-normal text-[21.79px] text-white rounded-[5px]" style="box-shadow: rgb(214, 255, 0) -4px 4px 0px 0px;">
+                                    Buy Now<img class="max-w-[92px] w-full h-1 absolute bottom-1" alt="" src="Vector%20589.svg">
+                                </button>
+                                <div class="w-full flex gap-[35px] items-center">
+                                    <a href="https://t.me/LayerBrettbase" target="_blank" class="flex gap-8">
+                                        <img alt="" loading="lazy" width="39" height="34" decoding="async" data-nimg="1" src="tele.svg" style="color: transparent;">
+                                    </a>
+                                    <a href="https://x.com/layerbrett_base" target="_blank" class="flex gap-8">
+                                        <img alt="" loading="lazy" width="31" height="31" decoding="async" data-nimg="1" src="x.svg" style="color: transparent;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="buy-token">
+                <div class=" min-h-[1598px] xl:min-h-[1100px] pt-[147px] xl:pt-[200px] relative z-[4]">
+                    <img alt="" loading="lazy" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute object-cover top-0 w-full h-full z-[-1] hidden md:block" src="Baclground%201%20back%202-min.png" style="color: transparent;">
+                    <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute object-cover top-0 w-full h-full z-[-1]  md:hidden" src="Baclground%201%20back%202.png" style="color: transparent;">
+                    <img alt="Roadmap GIF" width="1000" height="1000" class="w-auto max-w-[300px] md:max-w-[450px] largeScreen:max-w-[547px] h-auto absolute right-16 lg:right-[20%] bottom-10 md:bottom-[0%] lg:bottom-16 largeScreen:bottom-0" src="roadmap.gif">
+                    <img alt="Roadmap GIF" loading="lazy" width="1000" height="1000" decoding="async" data-nimg="1" class="w-auto max-w-[200px] md:max-w-[300px] largeScreen:max-w-[464px] h-auto absolute right-12 lg:right-[18%] largeScreen:right-[16%] bottom-[10%] lg:bottom-[23%] largeScreen:bottom-[20%]" src="hero1.png" style="color: transparent;">
+                    <img alt="" loading="lazy" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute hidden lg:block max-sm:max-w-[231px] max-lg:max-w-[252px] max-largeScreen:max-w-[336px] xl:hidden md:left-8 max-w-[425px] w-full max-md:bottom-[101px] bottom-[60px] xl:bottom-[110px] z-[0] max-xxs:left-[-20px] max-lg:left-0 largeScreen:right-[30%]" src="IMG_0969%201.svg" style="color: transparent;">
+                    <img alt="" loading="lazy" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute max-lg:max-w-[28px] max-w-[47px] w-full max-md:bottom-[72px] bottom-14 max-xl:left-3 left-[44%] xl:bottom-[162px] z-[2]  " src="small%20monster%201.svg" style="color: transparent;">
+                    <img width="1000" height="1000" class="absolute max-w-[161px] max-lg:max-w-[100.515869140625px] bottom-10 xl:bottom-14 max-lg:right-0  xl:left-[43%]  largeScreen:left-[48%]   " alt="" src="alien-dance3.png">
+                    <img class="absolute bottom-[10%] xl:bottom-[-80px] left-0 z-[-1]" alt="" src="bush%202.svg">
+                    <div class="max-w-[1663px] largeScreen:px-4 px-16 xl:flex-row flex-col-reverse gap-[68px] xl:gap-0 mx-auto max-lg:px-4 w-full flex items-center justify-center">
+                        
+                        <div class="flex flex-col w-full" style="width: 650px;">
+                            <h1 class=" text-[44.9px] max-lg:max-w-[344px] w-full mx-auto max-lg:leading-[94%] xl:text-[48px] font-normal font-koulen text-white text-center ">LAYER BRETT IS UNLEASHING</h1>
+                            <img class="hidden xl:block" alt="" src="future.svg">
+                            <img alt="" class="lg:hidden" src="fututrMob.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="min-h-[1307px] relative z-[3] mt-[-9.5px] lg:pt-[62px]">
+                <img class=" max-w-[520px] xl:max-w-[921px] block   right-[50%] translate-x-1/2 bottom-20 lg:-bottom-5 absolute z-[0]" alt="" src="IMG_1921.png">
+                <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute top-0 hidden lg:block bottom-0 object-cover w-full h-full z-[-1]" src="Baclground%202%201-min.png" style="color: transparent;">
+                <img class="absolute top-0  lg:hidden bottom-0 object-cover w-full h-full z-[-1]" alt="" src="Baclground%202%201.png">
+                <div class="flex flex-col  ">
+                    <p class="font-nunito font-[900] text-center max-xl:mt-2.5 text-2xl text-[#003E57] uppercase">Featured in</p>
+                    <div class="rfm-marquee-container py-4" style="--pause-on-hover: paused; --pause-on-click: paused; --width: 100%; --transform: none;">
+                        <div class="rfm-marquee" style="--play: running; --direction: normal; --duration: 40.7s; --delay: 0s; --iteration-count: infinite; --min-width: auto;">
+                            <div class="rfm-initial-child-container">
+                                <div class="rfm-child" style="--transform: none;">
+                                    <div class="inline-flex gap-[54px] items-center">
+                                        <img class="max-w-[159px] h-auto" alt="News" src="1.png">
+                                        <img class="max-w-[274px] h-auto" alt="News" src="2.png">
+                                        <img class="max-w-[236px] h-auto" alt="News" src="3.png">
+                                        <img class="max-w-[93px] h-auto" alt="News" src="4.png">
+                                        <img class="max-w-[136px] h-auto" alt="News" src="5.png">
+                                        <img class="max-w-[372px] h-auto" alt="News" src="7.png">
+                                        <div class="w-[34px]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rfm-marquee" style="--play: running; --direction: normal; --duration: 40.7s; --delay: 0s; --iteration-count: infinite; --min-width: auto;">
+                            <div class="rfm-child" style="--transform: none;">
+                                <div class="inline-flex gap-[54px] items-center">
+                                    <img class="max-w-[159px] h-auto" alt="News" src="1.png">
+                                    <img class="max-w-[274px] h-auto" alt="News" src="2.png">
+                                    <img class="max-w-[236px] h-auto" alt="News" src="3.png">
+                                    <img class="max-w-[93px] h-auto" alt="News" src="4.png">
+                                    <img class="max-w-[136px] h-auto" alt="News" src="5.png">
+                                    <img class="max-w-[372px] h-auto" alt="News" src="7.png">
+                                    <div class="w-[34px]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-[711px] px-4 pt-10 lg:pt-[50px] w-full max-xl:mx-auto xl:ml-auto xl:mr-[241px] largeScreen:mr-[370px]">
+                    <div class="flex flex-col-reverse lg:flex-row lg:gap-[30px] lg:items-center">
+                        <span class="uppercase text-[#003E57] font-normal text-[40.3px] xl:text-[48px] font-koulen">About</span>
+                        <img class="max-w-[360px] w-full h-auto" alt="" src="LayerBrett.svg">
+                    </div>
+                    <p class="font-koulen mt-[10px] mb-4  leading-[130%] text-[24px] font-normal text-[#003E57]">Welcome to Layer Brett, where innovation meets personality. Layer Brett is no longer just another name in the
+          crypto world—he’s a symbol of transformation, breaking free from the ordinary and stepping into a new era of
+          blockchain technology. This isn’t just another Layer 2; it’s a movement built for speed, rewards, and a whole
+          lot of character!</p>
+                    <div class="flex flex-col lg:flex-row mx-auto max-lg:absolute bottom-[-130px] w-full max-w-[358px] left-1/2 max-lg:transform -translate-x-1/2 px-4 gap-[23px] lg:items-center">
+                        <!-- <a href="" class="bg-[#FFB3E8] text-[#003E57] rounded-[5px] lg:max-w-[181px] w-full h-[93px] lg:h-[47px] flex items-center justify-center font-koulen font-normal text-[35.68px] lg:text-lg border-[7.93px] lg:border-[4px] border-[#EF53C0C0] transition-all duration-200 ease-in-out hover:bg-[#f7a8dc] hover:shadow-[inset_-8px_8px_0px_0px_#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Whitepaper</a> -->
+                        <a href="https://app.uniswap.org/explore/tokens/base/0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf?inputCurrency=NATIVE" class="bg-[#00D2ED] text-[#003E57] rounded-[5px] lg:max-w-[181px] w-full h-[93px] lg:h-[47px] flex items-center justify-center font-koulen font-normal text-[35.68px] lg:text-lg border-[7.93px] lg:border-[4px] border-[#009BAF] transition-all duration-200 ease-in-out hover:bg-[#00c6e0] hover:shadow-[inset_-8px_8px_0px_0px_#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+            <section class="relative mt-[-10px]">
+                <div class=" xl:min-h-[1233px] bg-[#1E7381] flex flex-col justify-center relative z-[2] max-largeScreen:mt-[-7.5px] top-0 pt-[62px] overflow-hidden">
+                    <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute xl:block hidden top-0 bottom-0 object-cover w-full h-full z-[-1]" src="background3%201%20(1).svg" style="color: transparent;">
+                    <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="max-w-full h-[1235px] xl:hidden top-0 w-full absolute z-[-1]" src="background3%202.svg" style="color: transparent;">
+                    <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class=" max-w-[67px] xl:max-w-[178px] h-auto absolute left-10 xl:left-[14%] z-[-1] top-[8%] max-lg:blur-[5px] xl:top-[10%]" src="t%20fighter%205.svg" style="color: transparent;">
+                    <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="max-w-[109px] absolute h-auto -right-10 xl:right-[14%] z-[-1] top-[8%]" src="t%20fighter%204.svg" style="color: transparent;">
+                    <img class="max-w-[109px] absolute keft-0 xl:hidden z-[-1] top-[20%]" alt="" src="t%20fighter%205.png">
+                    <div class="flex w-full  relative justify-between flex-col xl:flex-row items-center max-w-[1682px] mx-auto px-4">
+                        <img alt="" loading="lazy" width="1000" height="1000" class="max-w-[500px] pt-[150px] largeScreen:max-w-[600px] xl:hidden h-auto w-full" src="alien-dance4.gif">
+                        <div class="max-w-[450px] w-full largeScreen:max-w-[592px] flex flex-col gap-[33px]">
+                            <div class=" py-5 px-3 lg:p-5 shadow-cardMob xl:shadow-outerDesk max-w-[400px] gap-4 w-full largeScreen:max-w-[497px] ml-auto bg-[#0487AB] rounded-[14px] border-[#003E58] border-[4px] flex items-start">
+                                <div class="w-[70px] flex-shrink-0 h-[70px] largeScreen:w-[99px] justify-center largeScreen:h-[99px] flex items-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <img alt="" width="48" height="48" src="Ethereum.svg">
+                                </div>
+                                <div class="flex flex-col">
+                                    <h3 class=" leading-[100%] shadowText text-[#003E57] koulen text-[26.34px] largeScreen:text-[37.35px] font-normal">Built on BASE</h3>
+                                    <p class="font-normal font-koulen text-[18.91px] leading-[100%] xl:text-lg largeScreen:text-[24px]">Layer Brett harnesses the power of Ethereum’s Layer 2 technology to deliver faster, cheaper, and scalable blockchain solutions.</p>
+                                </div>
+                            </div>
+                            <div class=" py-5 px-3 lg:p-5 shadow-cardMob xl:shadow-outerDesk max-w-[400px] gap-4 w-full largeScreen:max-w-[553px] mr-auto bg-[#0487AB] rounded-[14px] border-[#003E58] border-[4px] flex items-start">
+                                <div class="w-[70px] flex-shrink-0 h-[70px] largeScreen:w-[99px] justify-center largeScreen:h-[99px] flex items-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <img alt="" width="51" height="51" src="Coins.svg">
+                                </div>
+                                <div class="flex flex-col">
+                                    <h3 class=" leading-[100%] shadowText text-[#003E57] koulen text-[26.34px] largeScreen:text-[37.35px] font-normal">Seamless Interoperability</h3>
+                                    <p class="font-normal font-koulen text-[18.91px] leading-[100%] xl:text-lg largeScreen:text-[24px]">Layer Brett connects ecosystems with ease, allowing users to move assets quickly and securely across chains. Layer Brett is your gateway to the future</p>
+                                </div>
+                            </div>
+                            <div class=" py-5 px-3 lg:p-5 shadow-cardMob xl:shadow-outerDesk max-w-[400px] gap-4 w-full largeScreen:max-w-[521px] ml-auto bg-[#0487AB] rounded-[14px] border-[#003E58] border-[4px] flex items-start">
+                                <div class="w-[70px] flex-shrink-0 h-[70px] largeScreen:w-[99px] justify-center largeScreen:h-[99px] flex items-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <img alt="" width="68" height="68" src="Bridge.svg">
+                                </div>
+                                <div class="flex flex-col">
+                                    <h3 class=" leading-[100%] shadowText text-[#003E57] koulen text-[26.34px] largeScreen:text-[37.35px] font-normal">Community-Driven Vision</h3>
+                                    <p class="font-normal font-koulen text-[18.91px] leading-[100%] xl:text-lg largeScreen:text-[24px]">Empowering the Layer Brett community with decentralized governance, ensuring every voice shapes the future of Layer Brett.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute hidden mt-[100px] xl:flex flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  ">
+                            <img alt="" loading="lazy" width="1000" height="1000" decoding="async" data-nimg="1" class=" max-w-[500px] largeScreen:max-w-[600px] ml-6 h-auto w-full" src="alien-dance4.gif" style="color: transparent;">
+                            <div class="flex gap-[23px] xl:mt-[100px] justify-center items-center">
+                                <a href="https://app.uniswap.org/explore/tokens/base/0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf?inputCurrency=NATIVE" class="bg-[#00D2ED] text-[#003E57] rounded-[5px] max-w-[181px] w-full h-[47px] flex items-center justify-center font-koulen font-normal text-lg border-[4px] border-[#009BAF] transition-all duration-200 ease-in-out hover:bg-[#00c6e0] hover:shadow-[inset_-8px_8px_0px_0px_#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">BUY NOW</a>
+                            </div>
+                        </div>
+                        <div class="max-w-[450px] max-lg:pt-[30px] w-full largeScreen:max-w-[614px] flex flex-col gap-[33px]">
+                            <div class="p-5 max-w-[400px] shadow-cardMob xl:shadow-outerDesk gap-4 w-full largeScreen:max-w-[497px] m4-auto bg-[#0487AB] rounded-[14px] border-[#003E58] border-[4px] flex items-start">
+                                <div class="w-[70px] flex-shrink-0 h-[70px] largeScreen:w-[99px] justify-center largeScreen:h-[99px] flex items-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <img alt="" width="60" height="60" src="Digital%20key.svg">
+                                </div>
+                                <div class="flex flex-col">
+                                    <h3 class="font-koulen leading-[100%] shadowText text-[#003E57] text-[26.34px] largeScreen:text-[37.35px] font-normal">Double the Rewards</h3>
+                                    <p class="font-normal font-koulen text-[18.91px] leading-[100%] xl:text-lg largeScreen:text-[24px]">Stake $LBRETT and earn enhanced rewards, powered by the efficiency of Layer 2 scalability. Maximize your potential in the Layer Brett ecosystem.</p>
+                                </div>
+                            </div>
+                            <div class="p-5 max-w-[400px] shadow-cardMob xl:shadow-outerDesk gap-4 w-full largeScreen:max-w-[525px] ml-auto bg-[#0487AB] rounded-[14px] border-[#003E58] border-[4px] flex items-start">
+                                <div class="w-[70px] flex-shrink-0 h-[70px] largeScreen:w-[99px] justify-center largeScreen:h-[99px] flex items-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <img alt="" width="54" height="54" src="Documents.svg">
+                                </div>
+                                <div class="flex flex-col">
+                                    <h3 class="font-koulen leading-[100%] shadowText text-[#003E57] text-[26.34px] largeScreen:text-[37.35px] font-normal">Cutting-Edge Technology</h3>
+                                    <p class="font-normal font-koulen text-[18.91px] leading-[100%] xl:text-lg largeScreen:text-[24px]">Leveraging advanced Layer 2 solutions, Layer Brett ensures lightning-fast transactions without compromising on decentralization or security.</p>
+                                </div>
+                            </div>
+                            <div class="p-5 max-w-[400px] shadow-cardMob xl:shadow-outerDesk gap-4 w-full largeScreen:max-w-[497px] mr-auto bg-[#0487AB] rounded-[14px] border-[#003E58] border-[4px] flex items-start">
+                                <div class="w-[70px] flex-shrink-0 h-[70px] largeScreen:w-[99px] justify-center largeScreen:h-[99px] flex items-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <img alt="" width="61" height="61" src="Link.svg">
+                                </div>
+                                <div class="flex flex-col">
+                                    <h3 class="font-koulen leading-[100%] shadowText text-[#003E57] text-[26.34px] largeScreen:text-[37.35px] font-normal">Scalable and Secure</h3>
+                                    <p class="font-normal font-koulen text-[18.91px] leading-[100%] xl:text-lg largeScreen:text-[24px]">Layer Brett is designed to handle mass adoption with low fees and unparalleled security, redefining what’s possible on Layer 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" flex gap-[33px] pt-[70px] max-w-[358.7387390136719px] w-full mx-auto   xl:hidden flex-col justify-center items-center">
+                            <a href="https://app.uniswap.org/explore/tokens/base/0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf?inputCurrency=NATIVE" class="bg-[#00D2ED] shadow-btnShadowMob text-[#003E57] rounded-[5px]  w-full h-[93.15315246582031px] flex items-center justify-center font-koulen font-normal text-[43.19px] border-[7.93px] border-[#009BAF] ">BUY NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <img class="max-w-[306px] w-full xl:block hidden absolute z-[9] bottom-[50%] right-[20%]" alt="" src="t%20fighter%201.svg">
+                <img class="max-w-[288px] w-full xl:block hidden absolute z-[9] bottom-[50%] left-[10%]" alt="" src="IMG_1925.png">
+                <div class="relative z-[1] -mt-20" id="how-to-buy">
+                    <div class=" min-h-[1983px] lg:min-h-[1475.6162109375px]    overflow-hidden">
+                        <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute lg:block hidden top-0 bottom-0 object-cover w-full h-full z-[-1]" src="Group%201597885443-min.png" style="color: transparent;">
+                        <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="max-w-full md:h-full  md:hidden w-full h-[1053px] absolute z-[0] top-0" src="Group%201597885443.png" style="color: transparent;">
+                        <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="max-w-full w-full md:h-full object-cover md:hidden h-[979px] absolute z-[-1] top-[40%]" src="Ellipse%203101.svg" style="color: transparent;">
+                        <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="max-w-full lg:hidden md:top-[-20px] w-full object-cover md:h-full h-[684px] absolute z-[-1] bottom-0" src="Group%201597885778.svg" style="color: transparent;">
+                        <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute hidden lg:block right-[64px] bottom-[120px] object-cover max-w-[1046px] w-full z-[1] " src="jabba-talking%201.png" style="color: transparent;">
+                        <img loading="lazy" class="absolute  lg:block  hidden  bottom-[120px]  right-[52%] max-w-[207px] h-[211px] w-full z-[1]" alt="" src="sus%201.svg">
+                        <img width="1000" height="1000" loading="lazy" class="absolute block md:hidden lg:block top-[10%] lg:top-[19%] bottom-0 max-w-[121px] w-full left-[3%]  " alt="" src="alien-dance3.png">
+                        <img loading="lazy" class="absolute bottom-[12%] hidden lg:block 3xl:bottom-[13%] left-0 3xl:left-10 max-w-[200px] largeScreen:max-w-[281px] w-full" alt="" src="r2d2%201-min.png">
+                        <img loading="lazy" class="absolute  lg:hidden left-0 md:bottom-[220px] bottom-[80px] object-cover   h-[319px] max-w-full z-[1] " alt="" src="jabba%201.svg">
+                        <img loading="lazy" class="absolute  lg:hidden md:bottom-[220px] bottom-[80px] right-5 3xl:left-10 max-w-[130px] h-[202px] w-full z-[1]" alt="" src="r2d2%20111.svg">
+                        <img loading="lazy" class="absolute  lg:hidden md:bottom-[220px] bottom-[80px] left-5 3xl:left-10 max-w-[121px] h-[123px] w-full z-[1]" alt="" src="sus%201.svg">
+                        <div class=" pt-[132px] lg:pt-[160px] max-w-[1228px] mx-auto w-full">
+                            <img loading="lazy" class="max-w-[373px] max-lg:mx-auto relative lg:max-w-[598px]  block ml-[74px] w-full" alt="" src="How%20to%20buy.svg">
+                            <img loading="lazy" class="max-w-[373px] mx-auto   lg:hidden pb-[50px]   w-full" alt="" src="How%20to%20buy.svg">
+                            <div class="flex px-4 max-lg:items-center max-lg:gap-[58px] gap-[38px] lg:flex-row flex-col relative">
+                                <div class="relative max-w-[384px] lg:shadow-outerDesk shadow-cardMob px-10 pt-10 pb-3 rounded-[15px] w-full bg-[#0487AB] border-[4px] border-[#003E58] lg:top-[200px]">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">STEP 1</div>
+                                    <img loading="lazy" class="absolute max-w-[110px] lg:max-w-[142px] w-full top-[-100px] lg:top-[-137px] right-5" alt="" src="alien-dance2%204.png">
+                                    <h2 class="text-[#D6FF00] text-[33.33px] font-normal font-koulen">Buy Now</h2>
+                                    <p class="text-[20.83px] leading-[140%] font-normal font-koulen">Connect your crypto wallet (we recommend MetaMask). This is your gateway to the Layer Brett ecosystem. Make sure your wallet is loaded with BASE, USDT, or you can use Fiat Card Payment to participate.</p>
+                                </div>
+                                <div class="relative max-w-[384px] lg:shadow-outerDesk shadow-cardMob px-10 pt-10 pb-3 rounded-[15px] w-full bg-[#0487AB] border-[4px] border-[#003E58] lg:top-[130px]">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">STEP 2</div>
+                                    <h2 class="text-[#D6FF00] text-[33.33px] font-normal font-koulen">Enter The Amount</h2>
+                                    <p class="text-[20.83px] leading-[140%] font-normal font-koulen">After selecting BASE, USDT or Card from the drop down menu, enter the amount you want to purchase and see the corresponding amount of $LBRETT tokens. Secure your spot early and be part of the future of Layer 2 blockchain innovation.</p>
+                                </div>
+                                <div class="relative max-w-[384px] lg:shadow-outerDesk shadow-cardMob px-10 pt-10 pb-3 rounded-[15px] w-full bg-[#0487AB] border-[4px] border-[#003E58] lg:top-0">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">STEP 3</div>
+                                    <img loading="lazy" class="absolute lg:block hidden max-w-[142px] w-full top-[-50px] right-[-50px]" alt="" src="alien8.svg">
+                                    <h2 class="text-[#D6FF00] text-[33.33px] font-normal font-koulen">Buy / Buy &amp;Stake</h2>
+                                    <p class="text-[20.83px] leading-[140%] font-normal font-koulen">Press "Buy &amp;Stake" or "Buy Now" depending on if you wish to stake or not. Confirm the transaction in your wallet once the pop-up appears. Remember to have enough in your wallet for gas fees.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="-mt-32 md:mt-[-16rem] lg:-mt-44 relative z-[0]">
+                <div class="    min-h-[2800px] lg:min-h-[1337px]      ">
+                    <img class="absolute hidden lg:block top-0 bottom-0 object-cover w-full h-full z-[-1]" alt="" src="backgrounds%201-min.png">
+                    <img class="max-w-full h-[862px] w-full md:object-cover absolute z-[0] top-0 lg:hidden" alt="" src="bgRemove.png">
+                    <img class="max-w-full h-[1950px] w-full absolute object-cover z-[-1] bottom-[100px] lg:hidden" alt="" src="Group%201597885817.svg">
+                    <img class=" max-w-[93px] lg:max-w-[252px]  block w-full absolute top-[8%] lg:top-[15%] left-[4%] lg:left-[7%]" alt="" src="alien12%201.svg">
+                    <img class="max-w-[112.15146971926202px] lg:max-w-[269px]  block w-full absolute top-[8%] lg:top-[15%] right-[4%] lg:right-[7%]" alt="" src="alien10%201.svg">
+                    <img class="max-w-[112.15146971926202px] lg:max-w-[206px]  block w-full absolute max-lg:top-[20%] lg:bottom-[19%] left-[9%]" alt="" src="alien9%201.svg">
+                    <img class="max-w-[112.15146971926202px] lg:max-w-[206px]    lg:hidden w-full absolute max-lg:top-[19%] lg:bottom-[19%] right-[9%]" alt="" src="alien11%201.svg">
+                    <img class="absolute left-1/2 -translate-x-1/2 top-[25%] lg:hidden max-w-full z-[1] h-auto" alt="" src="Group%201597885818.png">
+                    <img class="max-xxs:max-w-[80px] max-w-[97px] w-full absolute lg:hidden right-3 -scale-x-100   top-[40%]" alt="" src="alien13.png">
+                    <img class="max-xxs:max-w-[100px] max-w-[128px] w-full absolute lg:hidden right-3 top-[60%]" alt="" src="alien16.png">
+                    <img loading="lazy" alt="Roadmap GIF" class="absolute left-1/2 top-[15%] lg:top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-auto max-lg:max-w-[322px] max-w-full h-auto object-contain pointer-events-none max-lg:z-[2] z-[-1]" src="roadmap.gif">
+                    <img alt="" class="absolute left-1/2 lg:hidden z-[2] transform top-[11%] -translate-x-1/2 w-full max-w-[444px]" src="tokenomics2%201.png">
+                    <div class="max-w-[1163px]  xl:hidden z-[999]  left-1/2 -translate-x-1/2 mx-auto w-full p-3 absolute bottom-[228px] lg:bottom-0 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58] shadow-outerDesk">
+                        <div class="w-full border-[4px] border-[#003E58]  shadow-custom-inset bg-[#005870] p-6 grid grid-cols-1 lg:grid-cols-2 gap-5">
+                            <div class="flex flex-col gap-5">
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-[20px] font-bold text-white font-obriton">Symbol:</h2>
+                                    <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">LBRETT</div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-[20px] font-bold text-white font-obriton">Ownership:</h2>
+                                    <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">Renounced</div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-[20px] font-bold text-white font-obriton">Chain:</h2>
+                                    <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">BASE</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-5">
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-[20px] font-bold relative z-[2] text-white font-obriton">Contract Address:</h2>
+                                    <div class="max-w-[316px] relative leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 xl:px-[48px] text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">
+                                        0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf<img width="24" height="24" class="absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer" alt="Copy address" src="solar_copy-bold.png">
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-[20px] font-bold text-white font-obriton">Supply:</h2>
+                                    <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 xl:px-[48px] text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">1,000,000,000</div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-[20px] font-bold text-white font-obriton">Decimals:</h2>
+                                    <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 xl:px-[48px] text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative pt-[80px] lg:pt-[150px]">
+                        <img class="max-w-[381px] lg:max-w-[528px] mx-auto w-full" alt="" src="Tokenomics.svg">
+                        <img alt="" class="absolute left-1/2 hidden lg:block transform top-[300px] -translate-x-1/2 w-full max-w-[1387px]" src="Group%201597885481.png">
+                    </div>
+                </div>
+            </section>
+            <div class="relative max-lg:min-h-[3427px]">
+                <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="absolute hidden lg:block top-0 bottom-0 object-cover w-full h-full z-[-1]" src="Group%201597885818.png" style="color: transparent;">
+                <img alt="" width="1000" height="1000" decoding="async" data-nimg="1" class="w-full h-full -top-[100px] absolute z-[-1] object-cover lg:hidden" src="Group%201597885816%20(1).png" style="color: transparent;">
+                <div class="relative z-[1] mt-[-160px]">
+                    <div class=" min-h-[1600px] xl:min-h-[1153px]    overflow-hidden">
+                        <img class="max-w-full 3xl:block hidden h-auto absolute bottom-[-60px] right-0" alt="" src="ads5.png">
+                        <img width="1000" height="1000" loading="lazy" class="max-lg:max-w-[111px]  max-w-[161px] h-auto absolute max-lg:bottom-[40px] bottom-[-100px] max-sm:left-[-10px] left-0 " alt="" src="alien-dance3.png">
+                        <img width="1000" height="1000" loading="lazy" class="max-w-[111px] xl:max-w-[200px]   h-auto absolute max-lg:bottom-[80px] bottom-[-61px] left-20 lg:left-[10%]" alt="" src="alien-dance2%204.png">
+                        <img class="max-w-full xl:block hidden h-auto absolute bottom-[-40%] 3xl:bottom-[-45%] left-0" alt="" src="alien7.svg">
+                        <img class="max-largeScreen:max-w-[200px] max-w-full h-auto absolute max-largeScreen:-bottom-10 bottom-6 hidden xl:block right-[450px]" alt="" src="yoda%201.svg">
+                        <img class="absolute left-[69%] xl:left-[48.8%] top-[5%] xl:top-[18%] max-w-[100px] xl:max-w-[152px] w-full" alt="" src="medium%201.svg">
+                        <div class="border-[#B9B9B9] border-[3.04px] uppercase bg-[#E9E9E9] absolute bottom-[28%] xl:bottom-[20%] mediumScreen:bottom-[38%]  largeScreen:bottom-[47%] right-[40%] xl:right-[13%] mediumScreen:right-[15%] largeScreen:right-[15%] text-center max-w-[198.66293334960938px] h-[69.265625px] rounded-[11.42px] text-[#003E57] text-[18.27px] font-koulen font-normal flex items-center justify-center leading-[80%]">Join the Layer Brett Movement</div>
+                        <div class="absolute max-xl:bottom-[6%] bottom-[-12%] right-0">
+                            <img class=" max-sm:max-w-[250px] xl:max-w-[353px] mediumScreen:max-w-[500px]  largeScreen:max-w-full h-auto 3xl:hidden max-xl:bottom-0 max-md:bottom-10 max-2xl:bottom-[-30px] relative     " alt="" src="ads5.png">
+                        </div>
+                        <img class="max-w-[148px] h-[179px] xl:hidden    absolute max-md:bottom-[12%] bottom-[9%] max-md:left-[18%] left-[20%]" alt="" src="yoda%201.svg">
+                        <div class="max-w-[1163px] hidden xl:block z-[999]  left-1/2 -translate-x-1/2 mx-auto w-full p-5 absolute top-[-110px] rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58] shadow-outerDesk">
+                            <div class="w-full border-[4px] border-[#003E58]  shadow-custom-inset bg-[#005870] p-6 grid grid-cols-1 lg:grid-cols-2 gap-2">
+                                <div class="flex flex-col gap-2.5">
+                                    <div class="flex justify-between items-center">
+                                        <h2 class="text-[20px] font-bold text-white font-obriton">Symbol:</h2>
+                                        <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">LBRETT</div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <h2 class="text-[20px] font-bold text-white font-obriton">Ownership:</h2>
+                                        <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">Renounced</div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <h2 class="text-[20px] font-bold text-white font-obriton">Chain:</h2>
+                                        <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">BASE</div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2.5">
+                                    <div class="flex justify-between items-center">
+                                        <h2 class="text-[20px] font-bold relative z-[2] text-white font-obriton">Contract Address:</h2>
+                                        <div class="max-w-[316px] relative leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 xl:px-[48px] text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">
+                                            0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf<img width="24" height="24" class="absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer" alt="Copy address" src="solar_copy-bold.png">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <h2 class="text-[20px] font-bold text-white font-obriton">Supply:</h2>
+                                        <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 xl:px-[48px] text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">1,000,000,000</div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <h2 class="text-[20px] font-bold text-white font-obriton">Decimals:</h2>
+                                        <div class="max-w-[316px] leading-none bg-[#0487AB] rounded-[15px] border-[4px] border-[#003E58] shadow-shadowSm py-2 px-4 xl:px-[48px] text-[33.33px] text-[#D6FF00] font-koulen underline-offset-0 w-full">9</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-[200px]">
+                            <div class="px-4">
+                                
+                                <div class="max-w-[1098px] pt-[30px] xl:pt-[60px] flex flex-col gap-6 xl:gap-10 w-full xl:mr-auto xl:ml-[5%]">
+                                    <div class="max-w-[362px] md:max-w-[1027px] w-full max-md:mx-auto lg:mt-[28px] md:ml-auto grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-[33px]">
+                                        <div class="bg-[#0487AB] shadow-saleMob xl:shadow-outerDesk p-4 xl:p-5 gap-5 flex items-center rounded-[15px] border-[4px] border-[#003E58]">
+                                            <div class="w-[72.10865020751953px] xl:w-[99px] flex-shrink-0 h-[72.10865020751953px] xl:h-[99px] flex items-center justify-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                                <img alt="" width="48" height="48" src="Ethereum.svg">
+                                            </div>
+                                            <p class="text-white text-[15px] xl:text-[24px] font-normal leading-[120%] xl:leading-[85%] font-koulen">Get in early with Buy on Uniswap or other listing platforms, offering the lowest cost for $LBRETT. Secure your position before prices surge and $LBRETT launches on major exchanges.</p>
+                                        </div>
+                                        <div class="bg-[#0487AB] shadow-saleMob xl:shadow-outerDesk p-4 xl:p-5 gap-5 flex items-center rounded-[15px] border-[4px] border-[#003E58]">
+                                            <div class="w-[72.10865020751953px] xl:w-[99px] flex-shrink-0 h-[72.10865020751953px] xl:h-[99px] flex items-center justify-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                                <img alt="" width="60" height="60" src="Digital%20key.svg">
+                                            </div>
+                                            <p class="text-white text-[15px] xl:text-[24px] font-normal leading-[120%] xl:leading-[85%] font-koulen">Early adopters of $LBRETT enjoy exclusive staking bonuses, maximizing rewards while supporting the ecosystem's growth.</p>
+                                        </div>
+                                    </div>
+                                    <div class="max-w-[362px] md:max-w-[1027px] w-full max-md:mx-auto md:mr-auto grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-[33px]">
+                                        <div class="bg-[#0487AB] shadow-saleMob xl:shadow-outerDesk  p-5 gap-5 flex items-center rounded-[15px] border-[4px] border-[#003E58]">
+                                            <div class="w-[72.10865020751953px] xl:w-[99px] flex-shrink-0 h-[72.10865020751953px] xl:h-[99px] flex items-center justify-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                                <img alt="" width="51" height="51" src="Coins.svg">
+                                            </div>
+                                            <p class="text-white text-[15px] xl:text-[24px] font-normal leading-[120%] xl:leading-[85%] font-koulen">Own $LBRETT and benefit from ultra-low transaction fees, meaning more of your investment goes towards gains.</p>
+                                        </div>
+                                        <div class="bg-[#0487AB] shadow-saleMob xl:shadow-outerDesk  p-5 gap-5 flex items-center rounded-[15px] border-[4px] border-[#003E58]">
+                                            <div class="w-[72.10865020751953px] xl:w-[99px] flex-shrink-0 h-[72.10865020751953px] xl:h-[99px] flex items-center justify-center bg-[#FFB3E8] border-[4px] border-[#EF53C0C0] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                                <img alt="" width="68" height="68" src="Bridge.svg">
+                                            </div>
+                                            <p class="text-white text-[15px] xl:text-[24px] font-normal leading-[120%] xl:leading-[85%] font-koulen">Shape the future of $LBRETT through governance, rewards, and exclusive access to innovations.</p>
+                                        </div>
+                                    </div>
+                                    <div class="max-w-[708px] text-[#252367] font-normal font-koulen text-[20px] xl:text-[29.77px] mx-auto text-center leading-[100%]">Where memes meet mechanism - Layer Brett brings speed, staking and unstoppable vibes.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative z-[1]">
+                    <div class="min-h-[1666px] lg:min-h-[1313px] px-4">
+                        <img class="absolute bottom-[11%] lg:block hidden right-[15%] max-w-[102px] w-full h-auto" alt="" src="t%20fighter%206.svg">
+                        <img class="absolute bottom-[0%] lg:block hidden right-[20%] max-w-[280px] w-full h-auto" alt="" src="Ads6.png">
+                        <img class="max-w-[1500px] lg:block hidden absolute bottom-[-42%] left-1/2 translate-x-[-50%] z-[-1] w-full h-auto" alt="" src="planet%201.svg">
+                        <img class="max-w-[394px] lg:block hidden absolute bottom-[-160px] left-1/2 translate-x-[-50%] z-[-1] w-full h-auto" alt="" src="Brett%20Wars.svg">
+                        <img class="absolute left-1/2 -translate-x-1/2 top-[-150px] lg:top-[-60px] max-w-[200px] lg:max-w-full h-auto " alt="" src="ads4.png">
+                        <div class="px-4 lg:pt-[400px]">
+                            <p class="max-lg:max-w-[365px] max-lg:mx-auto w-full uppercase font-normal font-koulen text-[23px] xl:text-[32px] text-white text-center">Not Just a MemeCoin — A Blockchain Revolution: Layer Brett</p>
+                            <img class="max-w-[1314px] lg:block hidden w-full mx-auto pt-10" alt="" src="Speed.svg">
+                            <img class="max-w-full lg:hidden  w-full mx-auto  " alt="" src="speedMob.svg">
+                            <div class="max-w-[1445px] pt-5 mx-auto grid items-start grid-cols-1 lg:grid-cols-3 gap-6 3xl:gap-x-[80px] 3xl:gap-y-[30px]">
+                                <div class="flex flex-col gap-4">
+                                    <div class="flex items-center gap-[26px]">
+                                        <div class="w-[50px] h-[43px] flex items-center justify-center bg-[#FFB3E8] border-[#EF53C0] border-[2.31px]" style="box-shadow: rgb(0, 62, 88) -9.25px 9.25px 0px 0px;">
+                                            <img alt="" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" src="Fast%20forward.svg" style="color: transparent;">
+                                        </div>
+                                        <h3 class="max-sm:text-[29px] text-[32px] text-white font-normal font-koulen">Faster Transactions</h3>
+                                    </div>
+                                    <p class="text-lg font-medium font-nunito leading-[140%]">No more waiting. With Layer 2 technology, Layer Brett processes transactions at lightning speed, ensuring seamless staking, trading, and interactions across the ecosystem.</p>
+                                </div>
+                                <div class="flex flex-col gap-4">
+                                    <div class="flex items-center gap-[26px]">
+                                        <div class="w-[50px] h-[43px] flex items-center justify-center bg-[#FFB3E8] border-[#EF53C0] border-[2.31px]" style="box-shadow: rgb(0, 62, 88) -9.25px 9.25px 0px 0px;">
+                                            <img alt="" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" src="World.svg" style="color: transparent;">
+                                        </div>
+                                        <h3 class="max-sm:text-[29px] text-[32px] text-white font-normal font-koulen">Community Power</h3>
+                                    </div>
+                                    <p class="text-lg font-medium font-nunito leading-[140%]">Layer Brett is built for the people, by the people. Decentralized governance ensures the community drives the project's future, putting power where it belongs—in your hands.</p>
+                                </div>
+                                <div class="flex flex-col gap-4">
+                                    <div class="flex items-center gap-[26px]">
+                                        <div class="w-[50px] h-[43px] flex items-center justify-center bg-[#FFB3E8] border-[#EF53C0] border-[2.31px]" style="box-shadow: rgb(0, 62, 88) -9.25px 9.25px 0px 0px;">
+                                            <img alt="" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" src="Fees.svg" style="color: transparent;">
+                                        </div>
+                                        <h3 class="max-sm:text-[29px] text-[32px] text-white font-normal font-koulen">Lower Fees</h3>
+                                    </div>
+                                    <p class="text-lg font-medium font-nunito leading-[140%]">Say goodbye to high gas fees. Layer Brett leverages BASE's scalability to make transactions affordable for everyone, so you keep more of what's yours.</p>
+                                </div>
+                                <div class="flex flex-col gap-4">
+                                    <div class="flex items-center gap-[26px]">
+                                        <div class="w-[50px] h-[43px] flex items-center justify-center bg-[#FFB3E8] border-[#EF53C0] border-[2.31px]" style="box-shadow: rgb(0, 62, 88) -9.25px 9.25px 0px 0px;">
+                                            <img alt="" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" src="Programmer.svg" style="color: transparent;">
+                                        </div>
+                                        <h3 class="max-sm:text-[29px] text-[32px] text-white font-normal font-koulen">Programmability</h3>
+                                    </div>
+                                    <p class="text-lg font-medium font-nunito leading-[140%]">Unleash the potential of smart contracts. Layer Brett supports advanced programmability, enabling developers to build unique dApps and experiences within the ecosystem.</p>
+                                </div>
+                                <div class="flex flex-col gap-4">
+                                    <div class="flex items-center gap-[26px]">
+                                        <div class="w-[50px] h-[43px] flex items-center justify-center bg-[#FFB3E8] border-[#EF53C0] border-[2.31px]" style="box-shadow: rgb(0, 62, 88) -9.25px 9.25px 0px 0px;">
+                                            <img alt="" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" src="Team.svg" style="color: transparent;">
+                                        </div>
+                                        <h3 class="max-sm:text-[29px] text-[32px] text-white font-normal font-koulen">Seamless Experience</h3>
+                                    </div>
+                                    <p class="text-lg font-medium font-nunito leading-[140%]">From staking to trading, Layer Brett is designed for simplicity and efficiency. Enjoy a user-friendly interface and a smooth blockchain experience like no other.</p>
+                                </div>
+                                <div class="flex flex-col lg:flex-row gap-[23px] justify-center items-center">
+                                    <a href="https://app.uniswap.org/explore/tokens/base/0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf?inputCurrency=NATIVE" class="bg-[#00D2ED] text-[#003E57] rounded-[5px] lg:max-w-[181px] w-full h-[93px] lg:h-[47px] flex items-center justify-center font-koulen font-normal text-[43.19px] lg:text-lg border-[7.93px] lg:border-[4px] border-[#009BAF] transition-all duration-200 ease-in-out hover:bg-[#00c6e0] hover:shadow-[inset_-8px_8px_0px_0px_#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">BUY NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative lg:mt-[-196px] max-2xl:mt-[-170px] max-lg:mt-[-170px]">
+                <div class="relative   max-mini:min-h-[1000px] mini:min-h-[1456px]">
+                    <img class="absolute top-[5%] lg:hidden  right-[4%] max-w-[180px] w-full h-auto" alt="" src="Ads6.png">
+                    <img class="max-w-full h-auto w-full lg:hidden" alt="" src="planetMob.svg">
+                    <img class="max-w-[60.04169614028814px] absolute top-10 left-10 h-auto w-full lg:hidden" alt="" src="t%20fighter%208.svg">
+                    <img class="max-w-[45.51641241902347px] absolute top-10 right-10 h-auto w-full lg:hidden" alt="" src="t%20fighter%2078.svg">
+                    <img class="absolute top-0 left-0 object-cover w-full h-full z-[-1]" alt="" src="background9%201.svg">
+                    <img class="absolute hidden lg:block top-[100px] left-10 max-w-[197px] w-full h-auto" alt="" src="t%20fighter%207.svg">
+                    <img alt="" loading="lazy" width="1000" height="1000" decoding="async" data-nimg="1" class="max-w-[1612px] w-full mx-auto relative z-[1] -mt-[150px] h-auto" src="war.gif" style="color: transparent;">
+                    <div class="lg:hidden px-4">
+                        <img class="max-w-full h-auto w-full" alt="" src="Group%201597885788.png">
+                        <div class="flex flex-col lg:flex-row gap-[23px] justify-center items-center">
+                            <a href="https://app.uniswap.org/explore/tokens/base/0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf?inputCurrency=NATIVE" class="bg-[#00D2ED] text-[#003E57] rounded-[5px] lg:max-w-[181px] w-full h-[93px] lg:h-[47px] flex items-center justify-center font-koulen font-normal text-[43.19px] lg:text-lg border-[7.93px] lg:border-[4px] border-[#009BAF] transition-all duration-200 ease-in-out hover:bg-[#00c6e0] hover:shadow-[inset_-8px_8px_0px_0px_#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">BUY NOW</a>
+                        </div>
+                    </div>
+                    <div class="relative z-[2] max-w-[1163px] hidden lg:block mx-auto w-full lg:mt-[-50px]">
+                        <img class="w-full h-auto" alt="" src="Group%201597885486%20(1).svg">
+                        <button class="bg-[#FFB3E8] absolute top-[39%] left-[28%] text-[#003E57] rounded-[5px] max-w-[480px] w-full h-[57px] flex items-center justify-center font-koulen font-normal text-lg border-[4px] border-[#EF53C0C0] transition-all duration-200 ease-in-out hover:bg-[#f7a8dc] hover:shadow-[inset_-8px_8px_0px_0px_#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Coming Soon</button>
+                        <div class="flex absolute bottom-10 w-full gap-[23px] justify-center items-center">
+                             <a href="https://app.uniswap.org/explore/tokens/base/0x14A0dACDeeBC2d04Ff5B9B5534D2444aD55B8baf?inputCurrency=NATIVE" class="bg-[#00D2ED] text-[#003E57] rounded-[5px] max-w-[181px] w-full h-[47px] flex items-center justify-center font-koulen font-normal text-lg border-[4px] border-[#009BAF] transition-all duration-200 ease-in-out hover:bg-[#00c6e0] hover:shadow-[inset_-8px_8px_0px_0px_#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">BUY NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative z-[2] lg:mt-[-200px]">
+                <div class=" min-h-[1428.51904296875px] ">
+                    <img class="w-full h-[227px] lg:hidden absolute bottom-[-115px]" alt="" src="Ellipse%203104.svg">
+                    <div class="min-h-[2700px] lg:hidden  w-full max-lg:bg-[#F0B70F]  absolute bottom-[-30px] z-[-1]  "></div>
+                    <img class="absolute hidden lg:block top-0 left-0 w-full h-full object-cover z-[-2]" alt="" src="background5%202.png">
+                    <img class="max-w-[181px] w-full top-[40%] left-10 hidden lg:block absolute " alt="" src="alien13.png">
+                    <img class="max-w-[240px] w-full top-[40%] right-10 hidden lg:block absolute " alt="" src="alien16.png">
+                    <img class="max-w-[171px] w-full bottom-14 left-[20%] hidden lg:block absolute " alt="" src="alien14.png">
+                    <img class="max-w-[172px] w-full bottom-14 right-[20%] hidden lg:block absolute " alt="" src="alien15.png">
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[-1] hidden lg:block">
+                        <img alt="Roadmap GIF" loading="lazy" width="1000" height="1000" decoding="async" data-nimg="1" class="w-auto max-w-full h-auto object-contain" src="roadmap.gif" style="color: transparent;">
+                    </div>
+                    <div class="lg:hidden mt-[-70px] z-[1] min-h-[733px] relative">
+                        <img class="absolute top-[-50px] left-0 w-full h-full mini:object-cover z-[-1]" alt="" src="background5%202.svg">
+                        <img class="max-w-[350px] pt-20 w-full mx-auto bottom-0" alt="Roadmap Text" src="Roadmap.svg">
+                        <div class="relative w-full flex justify-center mt-[-70px]">
+                            <img loading="lazy" class="max-w-full w-full h-auto object-contain" alt="Roadmap GIF" src="roadmap.gif">
+                            <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[377.31px] max-w-[200px]" alt="Spock Image" src="spock1%201-min.png">
+                        </div>
+                    </div>
+                    <div class="max-lg:mt-[-50px] max-largeScreen:px-4 max-lg:relative max-lg:z-[2] lg:pt-[140px]">
+                        <img class="max-w-[363px] lg:block hidden w-full mx-auto " alt="" src="Roadmap.svg">
+                        <div class="max-w-[1387px] lg:mt-[-160px] w-full mx-auto flex flex-col lg:flex-row justify-between relative">
+                            <div class="max-mini:max-w-full max-w-[479px] w-full flex flex-col gap-14">
+                                <div class="max-w-[384px] mx-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 1</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">Community Uprising</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Grow Telegram, Twitter, and other platforms<br>
+                                        <br>
+                                        Launch creative and daring marketing initiatives<br>
+                                        <br>
+                                        Appoint passionate community leaders<br>
+                                        <br>Complete early stages.
+                                    </p>
+                                </div>
+                                <div class="max-w-[384px]  lg:hidden mx-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 2</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">The Genesis</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Launch the Layer Brett website and socials<br>
+                                        <br>
+                                        Begin layerbrett launch and onboard the early believers.<br>
+                                        <br>Kickstart marketing campaign.
+                                    </p>
+                                </div>
+                                <div class="max-w-[384px]  hidden lg:block max-lg:mx-auto lg:mr-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 3</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">The Breakthrough</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Conquer final stages of the layerbrett<br>
+                                        <br>
+                                        Achieve 50,000+ members across socials<br>
+                                        <br>
+                                        Claim Layer Brett's spot in the spotlight.<br>
+                                        <br>Finalize all preparations for token allocation and ecosystem launch.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class=" hidden lg:flex flex-col left-[35%] absolute bottom-[-330px]">
+                                <img class="max-w-[420px] mt-14 h-auto" alt="" src="spock1%201-min.png">
+                                <div class="max-w-[384px] mx-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 5</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">The Infinite Future</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Roll out upgrades, partnerships, and cross-chain integrations.<br>
+                                        <br>
+                                        Introduce community-driven governance to put power in the hands of users.<br>
+                                        <br>Solidify Brett's position as the ultimate memecoin Layer 2 blockchain.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="max-mini:max-w-full max-w-[479px] w-full mt-10 flex flex-col gap-14">
+                                <div class="max-w-[384px] max-lg:mt-[100px] lg:hidden max-lg:mx-auto lg:mr-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <img class="max-w-[139px] w-full absolute top-[-125px] -right-4" alt="" src="alien15.svg">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 3</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">The Breakthrough</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Conquer final stages of the layerbrett<br>
+                                        <br>
+                                        Achieve 50,000+ members across socials<br>
+                                        <br>
+                                        Claim Layer Brett's spot in the spotlight.<br>
+                                        <br>Finalize all preparations for token allocation and ecosystem launch.
+                                    </p>
+                                </div>
+                                <div class="max-w-[384px] hidden lg:block mx-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 2</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">The Genesis</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Launch the Layer Brett website and socials<br>
+                                        <br>
+                                        Begin layerbrett launch and onboard the early believers.<br>
+                                        <br>Kickstart marketing campaign.
+                                    </p>
+                                </div>
+                                <div class="max-w-[384px] mx-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 4</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">Brett Unchained</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Officially launch $LBRETT and bring the full ecosystem online.<br>
+                                        <br>
+                                        Introduce lbrettscan, governance, and Layer 2 utilities.<br>
+                                        <br>Partner with developers and projects to expand the Layer Brett ecosystem.
+                                    </p>
+                                </div>
+                                <div class="max-w-[384px] mx-auto relative w-full pl-10 pr-[36px] pb-[35px] pt-11 rounded-[15px] bg-[#0487AB] border-[4px] border-[#003E58] lg:hidden" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">
+                                    <div class="bg-[#FFB3E8] text-[20.83px] absolute top-[-30px] max-w-[146px] w-full h-[50px] flex items-center justify-center font-normal font-koulen text-[#003E57] border-[#EF53C0C0] border-[4px] rounded-[5px]" style="box-shadow: rgb(0, 62, 88) -8px 8px 0px 0px;">Phase 5</div>
+                                    <h2 class="text-[#D6FF00] font-koulen font-normal text-[33.33px]">The Infinite Future</h2>
+                                    <p class="font-nunito font-medium text-lg">
+                                        Roll out upgrades, partnerships, and cross-chain integrations.<br>
+                                        <br>
+                                        Introduce community-driven governance to put power in the hands of users.<br>
+                                        <br>Solidify Brett's position as the ultimate memecoin Layer 2 blockchain.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative z-[1] lg:z-[1] mt-[-30px] lg:mt-[-140px]">
+                <div class=" min-h-[1079px] lg:min-h-[1214px] ">
+                    <img class="absolute top-0 bottom-0 object-cover hidden sm:block w-full h-full z-[-1]" alt="" src="background8%201-min.png">
+                    <img class="absolute top-0 bottom-0 object-cover  sm:hidden w-full h-full z-[-1]" alt="" src="background8%201%20copy%201.png">
+                    <img class="max-lg:max-w-[200px] max-largeScreen:max-w-[400px] largeScreen:max-w-[621px] w-full absolute bottom-[-80px] lg:bottom-10 right-3 lg:right-0 z-[1]" alt="" src="alien4%201.svg">
+                    <img class=" max-lg:max-w-[250px] max-largeScreen:max-w-[450px]  largeScreen:max-w-[614px] w-full absolute bottom-16 xl:bottom-[200px]  left-5 lg:left-0 z-[1]" alt="" src="ads2.png">
+                   
+                </div>
+            </div>
+            <div id="faq" class="bg-black">
+                <div class="max-md:pb-0 py-[100px] relative overflow-hidden z-[1]">
+                    <img width="1000" height="1000" loading="lazy" class=" xl:top-1/2 -translate-y-1/2 largeScreen:max-w-[895px] max-w-[500px] hidden xl:block h-auto largeScreen:h-[767px] z-[-1] w-full absolute left-[-59px]  rotate-90" alt="" src="social_gpalacinka_httpss%201.gif">
+                    <div class=" max-w-[700px] largeScreen:max-w-[903px] max-lg:py-10 max-lg:px-4 w-full ml-auto mr-[10%]">
+                        <div class="flex items-center relative max-lg:pb-10">
+                            <img class="max-w-[140px] md:max-w-[254px] w-full h-auto" alt="" src="FAQs.png">
+                            <img class="hidden lg:block " alt="" src="Group%201597885488.svg">
+                            <img class=" lg:hidden -ml-10 mb-[-20px] " alt="" src="planet%202.svg">
+                        </div>
+                        <div class="flex flex-col w-full gap-3">
+                            <script>
+                            function toggleElement(id)
+                            {
+                                if(document.getElementById(id).style.maxHeight == "0px")
+                                {
+                                    document.getElementById(id).style.maxHeight = "120px";
+                                }
+                                else
+                                {
+                                    document.getElementById(id).style.maxHeight = '0px';
+                                }
+                            }
+                            </script>
+                            
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq1')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">What is Layer Brett?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq1" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0" >
+                                    <p class="text-[20px] font-medium font-nunito text-white">Layer Brett is a cutting-edge Layer 2 blockchain designed for meme coins—offering blazing speed, top-tier security, and near-zero fees.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq2')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">What is $LBRETT?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq2" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">$LBRETT is the native token of the Layer Brett ecosystem, powering transactions, staking, and governance.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq3')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">Why Layer 2?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq3" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">Layer 2 enhances scalability, ensuring faster transactions and lower fees while preserving the security of the main blockchain.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq4')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">What sets Layer Brett apart?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq4" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">It's built specifically for meme coins, optimized for rapid growth, low-cost interactions, and a vibrant, decentralized community.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq5')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">Who's behind Layer Brett?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq5" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">Layer Brett evolves from the Based.Brett community, combining meme culture with cutting-edge blockchain technology.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq6')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">How do I buy $LBRETT?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq6" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">$LBRETT can be bought on major exchanges and decentralized platforms. Follow official channels for the latest details.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq7')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">What can I do with $LBRETT?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq7" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">$LBRETT allows you to transact, stake for rewards, vote in governance proposals, and more within the Layer Brett ecosystem.</p>
+                                </div>
+                            </div>
+                            <div href="javascript:toggleElement('faq8')" class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">Is Layer Brett secure?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq8" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">Absolutely. Layer Brett employs robust security protocols to ensure a safe, seamless experience for all users.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq9')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">Why should I get in now?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq9" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">You're at the forefront of a new meme coin revolution. Early adopters will have the chance to shape the future of the ecosystem.</p>
+                                </div>
+                            </div>
+                            <div class="border-2 border-[#8F9293] w-full px-[18px] py-3  transition-all duration-300">
+                                <a href="javascript:toggleElement('faq10')" class="flex cursor-pointer justify-between items-center">
+                                    <h2 class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">How do I stay updated?</h2>
+                                    <span class="text-[24px] font-normal font-koulen transition-colors duration-300 text-white">+</span>
+                                </a>
+                                <div id="faq10" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
+                                    <p class="text-[20px] font-medium font-nunito text-white">Stay connected via official social media channels, forums, and newsletters for the latest news, updates, and community events.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xl:hidden min-h-[450.6719970703129px] relative">
+                        <img width="1000" height="1000" loading="lazy" class="max-w-full  lg:hidden h-auto z-[-1] w-full absolute left-[-30px]  rotate-90" alt="" src="social_gpalacinka_httpss%201.gif">
+                    </div>
+                </div>
+            </div>
+            <div class="px-4 pb-[100px] bg-black relative ">
+                <img alt="" loading="lazy" width="66.49410430440129" height="60.63559889446402" decoding="async" data-nimg="1" class="absolute bottom-10 largeScreen:bottom-[30%] right-10 lg:right-20" src="alien11%201.svg" style="color: transparent;">
+                <div class="max-w-[1504px] w-full mx-auto flex flex-col gap-5">
+                    <div class="max-w-[1169px] mx-auto w-full flex-col gap-4 lg:flex-row items-center flex justify-between">
+                        <div class="flex flex-col gap-10">
+                            <div class="flex-col gap-4 lg:gap-16 lg:flex-row items-center flex">
+                                <div class="flex flex-shrink-0 items-center gap-10">
+                                    <img alt="logo" loading="lazy" width="103" height="112" decoding="async" data-nimg="1" src="Logo.svg" style="color: transparent;">
+                                    <img class="max-w-[176px]   w-full" alt="" src="LayerBrett%20(1).svg">
+                                </div>
+                                <div class="max-w-[263px] justify-center w-full flex gap-16 items-center">
+                                    <a href="https://t.me/LayerBrettbase" target="_blank" class="flex gap-8">
+                                        <img alt="" loading="lazy" width="39.40684509277344" height="33.66445541381836" decoding="async" data-nimg="1" src="tele.svg" style="color: transparent;">
+                                    </a>
+                                    <a href="https://x.com/layerbrett_base" target="_blank" class="flex gap-8">
+                                        <img alt="" loading="lazy" width="30.962520599365234" height="30.962520599365234" decoding="async" data-nimg="1" src="x.svg" style="color: transparent;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex justify-center flex-col gap-6 ">
+                                <h2 class="text-white uppercase font-koulen text-xl lg:text-2xl">
+                                    Support: <a class="text-[#D6FF00]" href="#"><span class="__cf_email__">support@layerbrett.fun</span> </a>
+                                </h2>
+                                <h2 class="text-white uppercase font-koulen text-xl lg:text-2xl">
+                                    Marketing: <a class="text-[#D6FF00]" href="#"><span class="__cf_email__">market@layerbrett.fun</span> </a>
+                                </h2>
+                            </div>
+                        </div>
+                        <img class="max-w-[421px] w-full h-auto" alt="" src="Ads.png">
+                    </div>
+                    <p class="text-center text-[24px] max-lg:max-w-[305px] mx-auto max-lg:leading-[120%] font-koulen font-normal text-white">Powering the Future of MemeCoins &nbsp;©&nbsp;Layer Brett 2026 All Rights Reserved</p>
+                    <p class="text-center text-[20px] max-md:max-w-[364px] mx-auto text-white font-nunito font-medium">Disclaimer: By visiting this website, using our services, or purchasing $LBRETT, you agree to our Terms of Service and Privacy Policy. You also understand that nothing on this website constitutes financial advice. $LBRETT is a memecoin.</p>
+                </div>
+            </div>
+        </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"30687a88e8984418a18ae450eaac5e99","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
